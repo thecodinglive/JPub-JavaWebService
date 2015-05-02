@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+
+    testCompile 'junit:junit:4.12'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+
+}
+
+eclipse{
+   classpath {
+        downloadSources = true
+        defaultOutputDir = file("${buildDir}/classes/main")
+        }
+}
+
+idea{
+    module{
+        downloadSources = true
+        downloadJavadoc = false
+        inheritOutputDirs = false
+        outputDir = file("${buildDir}/classes/main")
+    }
+}
