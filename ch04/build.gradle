@@ -1,0 +1,50 @@
+buildscript{
+  repositories{
+    mavenCentral()
+  }
+  dependencies{
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar{
+  baseName = 'jpub-springBoot'
+  version =  '0.1.0'
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.slf4j:slf4j-api:1.7.7'
+
+    testCompile 'junit:junit:4.12'
+}
+
+eclipse{
+   classpath {
+        downloadSources = true
+        defaultOutputDir = file("${buildDir}/classes/main")
+        }
+}
+
+idea{
+    module{
+        downloadSources = true
+        downloadJavadoc = false
+        inheritOutputDirs = false
+        outputDir = file("${buildDir}/classes/main")
+    }
+}
