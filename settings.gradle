@@ -1,2 +1,2 @@
 rootProject.name = 'JPub-JavaWebService'
-includeFlat 'ch02', 'ch03', 'ch04'
+include 'ch02', 'ch03', 'ch04', 'ch10'

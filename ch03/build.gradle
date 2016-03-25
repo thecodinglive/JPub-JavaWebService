@@ -1,12 +1,30 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'application'
 
-repositories {
-    jcenter()
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+apply from : 'gradle/lib.gradle'
+
+
+group = 'thecodinglive'
+version = '1.0.0'
+
+compileJava {
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
 }
 
-dependencies {
-    compile 'org.springframework:spring-context:4.1.6.RELEASE'
-
-    compile     'org.slf4j:slf4j-api:1.7.7'
-    testCompile 'junit:junit:4.12'
+compileTestJava {
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
 }
+
+
+compileJava.options.encoding = 'UTF-8'
+compileGroovy.options.encoding = 'UTF-8'
+
+compileTestJava.options.encoding = 'UTF-8'
+compileTestGroovy.options.encoding = 'UTF-8'
+
