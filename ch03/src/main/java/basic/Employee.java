@@ -5,7 +5,7 @@ package basic;
  */
 public class Employee implements WorkManager{
     @Override
-    public void doIt() {
-        System.out.println("1234");
+    public String doIt() {
+        return "do work";
     }
 }
