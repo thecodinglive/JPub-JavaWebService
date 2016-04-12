@@ -12,12 +12,6 @@ import java.util.Arrays;
 @EnableAutoConfiguration
 public class RestApp {
     public static void main(String[] ar){
-        ApplicationContext ctx =  SpringApplication.run(RestApp.class, ar);
-
-        String[] beanNames = ctx.getBeanDefinitionNames();
-        Arrays.sort(beanNames);
-        for (String beanName : beanNames) {
-            System.out.println(beanName);
-        }
+        SpringApplication.run(RestApp.class, ar);
     }
 }

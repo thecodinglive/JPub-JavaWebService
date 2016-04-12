@@ -32,11 +32,14 @@ dependencies {
     compile("org.springframework.hateoas:spring-hateoas")
 
     compile 'org.slf4j:slf4j-api:1.7.7'
+    compile("com.jayway.jsonpath:json-path:0.9.1")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile 'junit:junit:4.12'
-    compile("com.jayway.jsonpath:json-path:0.9.1")
+
+    testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc:1.0.1.RELEASE'
 }
+
 
 eclipse{
    classpath {
