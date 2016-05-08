@@ -1,0 +1,36 @@
+apply plugin: 'tomcat'
+
+dependencies {
+
+/*
+  tomcat setting
+*/
+String tomcatVersion = '7.0.47'
+tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}"
+tomcat "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+    exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+}
+providedCompile "org.apache.tomcat:tomcat-servlet-api:${tomcatVersion}"
+
+}
+
+/*
+task generateClassOutPutFolder{
+    println  sourceSets.main.output.classesDir
+    boolean  success = sourceSets.main.output.classesDir.mkdirs()
+    if(!success){
+        throw new GradleException('Failed to create classes directory!')
+    }
+}
+*/
+
+tomcatRun {
+    contextPath = "/"
+    URIEncoding = 'UTF-8'
+    dependsOn war
+}
+
+tomcatRunWar{
+    contextPath = "/"
+}
