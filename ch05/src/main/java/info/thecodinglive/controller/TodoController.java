@@ -2,6 +2,8 @@ package info.thecodinglive.controller;
 
 import info.thecodinglive.model.ResourceWithUrl;
 import info.thecodinglive.model.Todo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +22,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
 @RequestMapping(value = "/todos")
+@Api(value = "todo", description = "todo api")
 public class TodoController {
         private Set<Todo> todos = new HashSet<>();
 
+        @ApiOperation(value = "전체 목록을 가져온다.")
         @RequestMapping(method = GET)
         public HttpEntity<Collection<ResourceWithUrl>> listAll() {
             List<ResourceWithUrl> resourceWithUrls = todos.stream().map(todo -> toResource(todo)).collect(Collectors.toList());

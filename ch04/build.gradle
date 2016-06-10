@@ -27,6 +27,8 @@ repositories {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
+    
+
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.slf4j:slf4j-api:1.7.7'
 
