@@ -19,5 +19,20 @@ public class BasicController {
         return new Todo(counter.incrementAndGet(),"라면사오기");
     }
 
+    @RequestMapping(value = "/todop", method = RequestMethod.POST)
+    public Todo postBasic(@RequestParam(value = "todoTitle") String todoTitle){
+        return new Todo(counter.incrementAndGet(), todoTitle);
+    }
+
+    @RequestMapping(value = "/todoh", method = RequestMethod.POST)
+    public HttpEntity<Todo> postBasicEntity(@RequestParam(value = "todoTitle") String todoTitle){
+        return new HttpEntity(new Todo(counter.incrementAndGet(), todoTitle));
+    }
+
+    @RequestMapping(value = "/todor", method = RequestMethod.POST)
+    public ResponseEntity<Todo> postBasicResponseEntity(@RequestParam(value = "todoTitle") String todoTitle){
+        return new ResponseEntity(new Todo(counter.incrementAndGet(), todoTitle), HttpStatus.CREATED);
+    }
+
 
 }
