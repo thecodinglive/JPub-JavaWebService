@@ -1,8 +1,14 @@
 package info.thecodinglive.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 public class Todo {
     private long id;
     private String title;
+
+    public Todo() {
+    }
 
     public Todo(long id, String title) {
         this.id = id;

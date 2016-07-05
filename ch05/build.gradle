@@ -35,22 +35,15 @@ dependencies {
     // http://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.4.0'
 
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile 'junit:junit:4.12'
 
 }
-
-project.ext{
-    isIdea = System.getProperty('idea.active') != null || gradle.startParameter.taskNames.contains('idea') ||  gradle.startParameter.taskNames.contains('cleanIdea')
-    isEclipse = System.getProperty("eclipse.launcher") != null || gradle.startParameter.taskNames.contains('eclipse') || gradle.startParameter.taskNames.contains('cleanEclipse')
-}
-
-task printTool{
-    print(isIdea)
-    print(isEclipse)
-}
-
 
 eclipse{
    classpath {
