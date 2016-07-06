@@ -1,6 +1,7 @@
 package info.thecodinglive.controller;
 
 import info.thecodinglive.model.Todo;
+import info.thecodinglive.model.TodoResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 
 @RestController
@@ -30,6 +32,7 @@ public class BasicController {
         return new ResponseEntity(new Todo(counter.incrementAndGet(), todoTitle), HttpStatus.CREATED);
     }
 
+
     @RequestMapping(value = "/todos/{todoId}", method = RequestMethod.GET)
     public Todo getPath(@PathVariable int todoId){
          Todo todo1 = new Todo(1L, "문서쓰기");
@@ -44,4 +47,11 @@ public class BasicController {
         return todoMap.get(todoId);
     }
 
+    @RequestMapping(value = "/todoh", method = RequestMethod.GET)
+    public ResponseEntity<TodoResource> geth(@RequestParam(value = "todoTitle") String todoTitle){
+        TodoResource todoResource = new TodoResource(todoTitle);
+        todoResource.add(linkTo(methodOn(BasicController.class).geth(todoTitle)).withSelfRel());
+
+        return  new ResponseEntity(todoResource, HttpStatus.OK);
+    }
 }
