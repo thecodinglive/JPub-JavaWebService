@@ -19,13 +19,11 @@ import java.util.List;
 @RestController
 public class CRUDController {
     @Autowired
-    //private TodoService todoService;
     private TodoRepository todoRepository;
 
     @RequestMapping(value = "/todos", method = RequestMethod.POST)
     public ResponseEntity<String> createTodo(@RequestParam(value = "todoTitle") String todoTitle){
         Todo todo = new Todo(todoTitle);
-        //todoService.save(todo);
         todoRepository.save(todo);
 
         return new ResponseEntity(todo, HttpStatus.OK);
@@ -33,7 +31,6 @@ public class CRUDController {
 
     @RequestMapping(value = "/todos", method = RequestMethod.GET)
     public ResponseEntity<Todo> showTodoList(){
-        //List<Todo> todos = todoService.findTodoList();
         List<Todo> todos = todoRepository.findAll();
 
         return  new ResponseEntity(todos, HttpStatus.OK);
