@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 
 @RequestMapping(value = "/jpa")
@@ -32,6 +33,14 @@ public class CRUDController {
     @RequestMapping(value = "/todos", method = RequestMethod.GET)
     public ResponseEntity<Todo> showTodoList(){
         List<Todo> todos = todoRepository.findAll();
+
+        return  new ResponseEntity(todos, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/stodos", method = RequestMethod.GET)
+    public ResponseEntity<Stream<Todo>> streamshowTodoList(){
+        //Stream<Todo> todos = todoRepository.findAllByTitle();
+        List<Todo> todos = todoRepository.findByTitle("hello");
 
         return  new ResponseEntity(todos, HttpStatus.OK);
     }

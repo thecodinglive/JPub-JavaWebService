@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.Lists;
+
 import info.thecodinglive.RestApp;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,9 +53,9 @@ public class RestAPITest {
         headers.set("Accept-Language", "ko");
         HttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-        List<HttpMessageConverter<?>> httpMessageConverter = Lists.newArrayList();
-        httpMessageConverter.add(stringHttpMessageConverter);
-        restTemplate.setMessageConverters(httpMessageConverter);
+        //List<HttpMessageConverter<?>> httpMessageConverter = Lists.newArrayList();
+        //httpMessageConverter.add(stringHttpMessageConverter);
+        //restTemplate.setMessageConverters(httpMessageConverter);
 
         String uri = "http://google.co.kr";
         ResponseEntity result = restTemplate.getForObject("http://google.com", ResponseEntity.class);
