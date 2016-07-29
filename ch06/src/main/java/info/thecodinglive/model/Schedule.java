@@ -1,26 +1,37 @@
 package info.thecodinglive.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Todo {
+public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
 
-    public Todo() {
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private User user;
+
+    public User getUser() {
+        return user;
     }
 
-    public Todo(long id, String title) {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    public Schedule() {
+    }
+
+    public Schedule(long id, String title, User user) {
         this.id = id;
         this.title = title;
+        this.user = user;
     }
 
-    public Todo(String title){
+    public Schedule(String title){
         this.title = title;
     }
 
