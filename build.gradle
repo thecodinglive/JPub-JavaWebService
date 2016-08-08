@@ -1,2 +1,21 @@
 apply plugin: 'base'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 
+eclipse{
+    classpath {
+        downloadSources = true
+        defaultOutputDir = file("${buildDir}/classes/main")
+    }
+}
+
+idea{
+    module{
+
+        downloadSources = true
+        downloadJavadoc = false
+        inheritOutputDirs = false
+        outputDir = file("${buildDir}/classes/main")
+
+    }
+}

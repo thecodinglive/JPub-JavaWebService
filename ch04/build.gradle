@@ -21,15 +21,29 @@ jar{
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+
+sourceSets{
+    main{
+        java {
+            srcDir 'src/main/java'
+        }
+        resources{
+            srcDir 'src/resources'
+        }
+    }
+}
+
+
 repositories {
     jcenter()
 }
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
     
 
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
     compile 'org.slf4j:slf4j-api:1.7.7'
 
     testCompile 'junit:junit:4.12'
@@ -44,9 +58,11 @@ eclipse{
 
 idea{
     module{
+
         downloadSources = true
         downloadJavadoc = false
         inheritOutputDirs = false
         outputDir = file("${buildDir}/classes/main")
+
     }
 }
