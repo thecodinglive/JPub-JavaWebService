@@ -1,6 +1,6 @@
 package info.thecodinglive.controller;
 
-import info.thecodinglive.model.Todo;
+import info.thecodinglive.model.Schedule;
 
 import info.thecodinglive.repository.TodoRepository;
 
@@ -23,25 +23,26 @@ public class CRUDController {
     private TodoRepository todoRepository;
 
     @RequestMapping(value = "/todos", method = RequestMethod.POST)
-    public ResponseEntity<String> createTodo(@RequestParam(value = "todoTitle") String todoTitle){
-        Todo todo = new Todo(todoTitle);
-        todoRepository.save(todo);
+    public ResponseEntity<String> createTodo(@RequestParam(value = "todoTitle") String todoTitle,
+                                             @RequestParam(value = "uname") String uname){
+        Schedule schedule = new Schedule(todoTitle);
+        todoRepository.save(schedule);
 
-        return new ResponseEntity(todo, HttpStatus.OK);
+        return new ResponseEntity(schedule, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/todos", method = RequestMethod.GET)
-    public ResponseEntity<Todo> showTodoList(){
-        List<Todo> todos = todoRepository.findAll();
+    public ResponseEntity<Schedule> showTodoList(){
+        List<Schedule> schedules = todoRepository.findAll();
 
-        return  new ResponseEntity(todos, HttpStatus.OK);
+        return  new ResponseEntity(schedules, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/stodos", method = RequestMethod.GET)
-    public ResponseEntity<Stream<Todo>> streamshowTodoList(){
+    public ResponseEntity<Stream<Schedule>> streamshowTodoList(){
         //Stream<Todo> todos = todoRepository.findAllByTitle();
-        List<Todo> todos = todoRepository.findByTitle("hello");
+        List<Schedule> schedules = todoRepository.findByTitle("hello");
 
-        return  new ResponseEntity(todos, HttpStatus.OK);
+        return  new ResponseEntity(schedules, HttpStatus.OK);
     }
 }
