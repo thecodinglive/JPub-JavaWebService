@@ -42,11 +42,14 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
 
+    compile 'org.webjars:jquery:3.1.0'
+    compile 'org.webjars:bootstrap:3.3.1'
+
     compile 'org.slf4j:slf4j-api:1.7.7'
 
     testCompile 'junit:junit:4.12'
 }
-git
+
 eclipse{
    classpath {
         downloadSources = true
