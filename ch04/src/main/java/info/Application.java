@@ -1,4 +1,4 @@
-package info.main;
+package info;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
