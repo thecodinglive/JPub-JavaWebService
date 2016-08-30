@@ -22,28 +22,22 @@ jar{
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-apply from : 'gradle/lib.gradle'
+
 
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-amqp")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
 
-
-    compile 'org.springframework.amqp:spring-amqp-parent:1.1.1.RELEASE'
-
-    compile 'org.springframework.amqp:spring-rabbit:1.4.5.RELEASE'
-
-
-
-
-    compile 'com.rabbitmq:amqp-client:3.6.1'
 
     compile 'org.slf4j:slf4j-api:1.7.7'
-
     testCompile 'junit:junit:4.12'
+
+
+    //compile project('ch10:CustombootStarter')
+    compile files('lib/spring-boot-helloService-starter-1.0.0-SNAPSHOT.jar')
 }
 
 
