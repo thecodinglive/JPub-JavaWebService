@@ -9,10 +9,11 @@ public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String contents;
+    @Column
+    private String title;
+
 
     @ManyToOne
-//    @JoinColumn(name = "USER_ID")
     @JsonBackReference
     private User user;
 
@@ -24,17 +25,24 @@ public class Schedule {
         this.user = user;
     }
 
+
     public Schedule() {
     }
 
-    public Schedule(long id, String contents, User user) {
+    public Schedule(long id, String title) {
         this.id = id;
-        this.contents = contents;
-        this.user = user;
+        this.title = title;
+
     }
 
-    public Schedule(String contents){
-        this.contents = contents;
+
+    public Schedule(User user, String title) {
+        this.user = user;
+        this.title = title;
+    }
+
+    public Schedule(String title){
+        this.title = title;
     }
 
     public long getId() {
@@ -45,13 +53,11 @@ public class Schedule {
         this.id = id;
     }
 
-
-    public String getContents() {
-        return contents;
+    public String getTitle() {
+        return title;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setTitle(String title) {
+        this.title = title;
     }
-
 }

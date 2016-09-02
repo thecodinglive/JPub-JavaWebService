@@ -11,21 +11,19 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private Long uid;
+    private Long id;
+
     private String uname;
 
+    public User(String uname) {
+        this.uname = uname;
+    }
+
     @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "uid")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Schedule> scheduleList;
 
-    public Long getUid() {
-        return uid;
-    }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
-    }
 
     public String getUname() {
         return uname;
@@ -35,6 +33,13 @@ public class User {
         this.uname = uname;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public List<Schedule> getScheduleList() {
         return scheduleList;
@@ -43,5 +48,6 @@ public class User {
     public void setScheduleList(List<Schedule> scheduleList) {
         this.scheduleList = scheduleList;
     }
+
 
 }
