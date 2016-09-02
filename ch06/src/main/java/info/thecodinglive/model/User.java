@@ -15,6 +15,10 @@ public class User {
     private Long uid;
     private String uname;
 
+    @OneToMany
+    @JoinColumn(name = "user_id", referencedColumnName = "uid")
+    private List<Schedule> scheduleList;
+
     public Long getUid() {
         return uid;
     }
@@ -29,6 +33,15 @@ public class User {
 
     public void setUname(String uname) {
         this.uname = uname;
+    }
+
+
+    public List<Schedule> getScheduleList() {
+        return scheduleList;
+    }
+
+    public void setScheduleList(List<Schedule> scheduleList) {
+        this.scheduleList = scheduleList;
     }
 
 }
