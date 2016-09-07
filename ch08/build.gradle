@@ -44,6 +44,12 @@ dependencies {
 
 }
 
+task createFolder << {
+    sourceSets*.java.srcDirs*.each {it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each{ it.mkdirs() }
+}
+
+
 eclipse{
     classpath {
         downloadSources = true

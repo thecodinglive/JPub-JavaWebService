@@ -4,6 +4,7 @@ import info.thecodinglive.model.Schedule;
 import info.thecodinglive.model.User;
 import info.thecodinglive.repository.TodoRepository;
 import info.thecodinglive.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
