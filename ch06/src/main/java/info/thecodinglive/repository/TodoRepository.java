@@ -1,15 +1,15 @@
 package info.thecodinglive.repository;
 
-import info.thecodinglive.model.Schedule;
+import info.thecodinglive.model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 
-public interface TodoRepository extends JpaRepository<Schedule,Long> {
+public interface TodoRepository extends JpaRepository<Task,Long> {
     //Stream<Todo> findAllByCustomQueryAndStream();
     //@Query("select title from todo")
     //Stream<Todo> findAllByTitle();
-    List<Schedule> findByTitle(String todoTitle);
+    List<Task> findByTitle(String todoTitle);
 }
 

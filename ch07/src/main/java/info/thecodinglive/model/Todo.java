@@ -1,11 +1,12 @@
 package info.thecodinglive.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import info.thecodinglive.model.User;
 
 import javax.persistence.*;
 
 @Entity
-public class Schedule {
+public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -26,22 +27,22 @@ public class Schedule {
     }
 
 
-    public Schedule() {
+    public Todo() {
     }
 
-    public Schedule(long id, String title) {
+    public Todo(long id, String title) {
         this.id = id;
         this.title = title;
 
     }
 
 
-    public Schedule(User user, String title) {
+    public Todo(User user, String title) {
         this.user = user;
         this.title = title;
     }
 
-    public Schedule(String title){
+    public Todo(String title){
         this.title = title;
     }
 

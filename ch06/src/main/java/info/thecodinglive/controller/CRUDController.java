@@ -1,6 +1,6 @@
 package info.thecodinglive.controller;
 
-import info.thecodinglive.model.Schedule;
+import info.thecodinglive.model.Task;
 
 import info.thecodinglive.repository.TodoRepository;
 
@@ -25,23 +25,23 @@ public class CRUDController {
     @RequestMapping(value = "/todos", method = RequestMethod.POST)
     public ResponseEntity<String> createTodo(@RequestParam(value = "todoTitle") String todoTitle,
                                              @RequestParam(value = "uname") String uname){
-        Schedule schedule = new Schedule(todoTitle);
+        Task schedule = new Task(todoTitle);
         todoRepository.save(schedule);
 
         return new ResponseEntity(schedule, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/todos", method = RequestMethod.GET)
-    public ResponseEntity<Schedule> showTodoList(){
-        List<Schedule> schedules = todoRepository.findAll();
+    public ResponseEntity<Task> showTodoList(){
+        List<Task> schedules = todoRepository.findAll();
 
         return  new ResponseEntity(schedules, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/stodos", method = RequestMethod.GET)
-    public ResponseEntity<Stream<Schedule>> streamshowTodoList(){
+    public ResponseEntity<Stream<Task>> streamshowTodoList(){
         //Stream<Todo> todos = todoRepository.findAllByTitle();
-        List<Schedule> schedules = todoRepository.findByTitle("hello");
+        List<Task> schedules = todoRepository.findByTitle("hello");
 
         return  new ResponseEntity(schedules, HttpStatus.OK);
     }

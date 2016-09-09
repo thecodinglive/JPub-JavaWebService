@@ -24,7 +24,7 @@ public class User {
 
     @OneToMany
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<Schedule> scheduleList;
+    private List<Task> scheduleList;
 
 
 
@@ -44,11 +44,11 @@ public class User {
         this.id = id;
     }
 
-    public List<Schedule> getScheduleList() {
+    public List<Task> getScheduleList() {
         return scheduleList;
     }
 
-    public void setScheduleList(List<Schedule> scheduleList) {
+    public void setScheduleList(List<Task> scheduleList) {
         this.scheduleList = scheduleList;
     }
 

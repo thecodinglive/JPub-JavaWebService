@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 @Entity
-public class Schedule {
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -26,22 +26,22 @@ public class Schedule {
     }
 
 
-    public Schedule() {
+    public Task() {
     }
 
-    public Schedule(long id, String title) {
+    public Task(long id, String title) {
         this.id = id;
         this.title = title;
 
     }
 
 
-    public Schedule(User user, String title) {
+    public Task(User user, String title) {
         this.user = user;
         this.title = title;
     }
 
-    public Schedule(String title){
+    public Task(String title){
         this.title = title;
     }
 

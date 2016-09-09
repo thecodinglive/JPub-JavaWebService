@@ -22,11 +22,17 @@ public class User {
         this.name = name;
     }
 
-    @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<Schedule> scheduleList;
+   @OneToMany(targetEntity = Todo.class)
+   @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private List<Todo> todoList;
 
+    public List<Todo> getTodoList() {
+        return todoList;
+    }
 
+    public void setTodoList(List<Todo> todoList) {
+        this.todoList = todoList;
+    }
 
     public String getName() {
         return name;
@@ -44,13 +50,6 @@ public class User {
         this.id = id;
     }
 
-    public List<Schedule> getScheduleList() {
-        return scheduleList;
-    }
-
-    public void setScheduleList(List<Schedule> scheduleList) {
-        this.scheduleList = scheduleList;
-    }
 
 
 }
