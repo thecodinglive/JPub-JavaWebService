@@ -1,6 +1,6 @@
 package info.thecodinglive.controller;
 
-import info.thecodinglive.model.User;
+import info.thecodinglive.model.UserEntity;
 import info.thecodinglive.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +19,8 @@ public class UserController {
 
 
     @RequestMapping("{userId}")
-    public User getUserInfo(@PathVariable Long userId){
-        User user = userRepository.findOne(userId);
+    public UserEntity getUserInfo(@PathVariable Long userId){
+        UserEntity user = userRepository.findOne(userId);
 
         return user;
     }

@@ -20,7 +20,7 @@ hs_err_pid*
 .idea/
 # if you remove the above rule, at least ignore the following:
 
-# User-specific stuff:
+# UserEntity-specific stuff:
 # .idea/workspace.xml
 # .idea/tasks.xml
 # .idea/dictionaries

@@ -8,23 +8,23 @@ import java.util.List;
  * Created by yun_dev1 on 2016-07-28.
  */
 @Entity
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(String name) {
+    public UserEntity(String name) {
         this.name = name;
     }
 
     @OneToMany
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<Task> scheduleList;
+    private List<TodoEntity> scheduleList;
 
 
 
@@ -44,11 +44,11 @@ public class User {
         this.id = id;
     }
 
-    public List<Task> getScheduleList() {
+    public List<TodoEntity> getScheduleList() {
         return scheduleList;
     }
 
-    public void setScheduleList(List<Task> scheduleList) {
+    public void setScheduleList(List<TodoEntity> scheduleList) {
         this.scheduleList = scheduleList;
     }
 

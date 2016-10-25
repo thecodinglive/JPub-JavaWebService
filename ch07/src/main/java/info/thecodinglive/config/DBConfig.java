@@ -53,6 +53,6 @@ public class DbConfig {
 
     @Configuration
     @EnableJpaRepositories(basePackages = "info.thecodinglive.repository",
-    entityManagerFactoryRef = "todoEntityManagerFactory", transactionManagerRef = "todoTransactionManager")
+            entityManagerFactoryRef = "todoEntityManagerFactory", transactionManagerRef = "todoTransactionManager")
     static class TodoRepositoriesConfig{}
 }

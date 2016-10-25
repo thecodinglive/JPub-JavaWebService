@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 @Entity
-public class Task {
+public class TodoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,33 +15,33 @@ public class Task {
 
     @ManyToOne
     @JsonBackReference
-    private User user;
+    private UserEntity user;
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
 
-    public Task() {
+    public TodoEntity() {
     }
 
-    public Task(long id, String title) {
+    public TodoEntity(long id, String title) {
         this.id = id;
         this.title = title;
 
     }
 
 
-    public Task(User user, String title) {
+    public TodoEntity(UserEntity user, String title) {
         this.user = user;
         this.title = title;
     }
 
-    public Task(String title){
+    public TodoEntity(String title){
         this.title = title;
     }
 

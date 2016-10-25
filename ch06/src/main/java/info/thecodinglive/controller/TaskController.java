@@ -1,7 +1,7 @@
 package info.thecodinglive.controller;
 
-import info.thecodinglive.model.Task;
-import info.thecodinglive.model.User;
+import info.thecodinglive.model.TodoEntity;
+import info.thecodinglive.model.UserEntity;
 import info.thecodinglive.repository.TodoRepository;
 import info.thecodinglive.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +23,16 @@ public class TaskController {
     private UserRepository userRepository;
 
     @RequestMapping("{scheduleId}")
-    public Task getSchedule(@PathVariable Long scheduleId) {
-        Task schedule = todoRepository.findOne(scheduleId);
-        User user = schedule.getUser();
+    public TodoEntity getSchedule(@PathVariable Long scheduleId) {
+        TodoEntity schedule = todoRepository.findOne(scheduleId);
+        UserEntity user = schedule.getUser();
         return schedule;
     }
 
     @RequestMapping("/add/{userId}")
-    public Task addSchedule(@PathVariable Long userId, @RequestParam(value = "title") String title){
-        User user = userRepository.findOne(userId);
-        Task schedule = todoRepository.save(new Task(user, title));
+    public TodoEntity addSchedule(@PathVariable Long userId, @RequestParam(value = "title") String title){
+        UserEntity user = userRepository.findOne(userId);
+        TodoEntity schedule = todoRepository.save(new TodoEntity(user, title));
 
         return schedule;
     }

@@ -10,6 +10,7 @@ public interface TodoRepository extends JpaRepository<Todo,Long> {
     //Stream<Todo> findAllByCustomQueryAndStream();
     //@Query("select title from todo")
     //Stream<Todo> findAllByTitle();
-    List<Todo> findByTitle(String todoTitle);
+    ///;List<Todo> findByTitle(String todoTitle);
+    Todo findByTitle(String todoTitle);
 }
 
