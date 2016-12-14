@@ -18,7 +18,7 @@ public class IntegrationTest {
     @Before
     public void setUp(){
 
-        userRepository.deleteAll();
+
         //userRepository.save()
     }
 
