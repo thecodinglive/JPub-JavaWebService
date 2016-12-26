@@ -1,19 +1,37 @@
 package info.thecodinglive.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Date;
 
 
 /**
  * Created by yun_dev1 on 2016-07-28.
  */
 @Entity
-public class UserEntity {
+public class UserEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+
+    private Integer age;
+
+    private Date createdAt;
+
+    @Column(name="role")
+    /**
+     *  EnumType.ORDINAL -- int value
+     *  EnumType.STRING  -- String enum name value
+    * */
+    @Enumerated(EnumType.ORDINAL)
+    private UserRole role;
+
+    @PrePersist
+    public void beforeCreate(){
+        createdAt = new Date();
+    }
 
     public UserEntity() {
     }
@@ -22,18 +40,10 @@ public class UserEntity {
         this.name = name;
     }
 
-    @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<TodoEntity> scheduleList;
-
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public UserEntity(String name, Integer age, UserRole role) {
         this.name = name;
+        this.age  = age;
+        this.role = role;
     }
 
     public Long getId() {
@@ -44,13 +54,27 @@ public class UserEntity {
         this.id = id;
     }
 
-    public List<TodoEntity> getScheduleList() {
-        return scheduleList;
+    public String getName() {
+        return name;
     }
 
-    public void setScheduleList(List<TodoEntity> scheduleList) {
-        this.scheduleList = scheduleList;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 }

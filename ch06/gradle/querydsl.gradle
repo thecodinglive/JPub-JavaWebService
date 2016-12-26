@@ -1,0 +1,39 @@
+sourceSets {
+    generated {
+        java {
+            srcDirs = ['src/main/generated']
+        }
+    }
+
+}
+
+// QEntity 생성 task
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.querydslapt
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "com.querydsl.apt.jpa.JPAAnnotationProcessor"
+
+    ]
+    destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
+}
+
+// compileJava task에 dependency를 걸어줍니다.
+compileJava {
+    dependsOn generateQueryDSL
+    // compile target에 generated된 QClass들의 위치를 추가.
+    source sourceSets.generated.java.srcDirs.iterator().next()
+}
+
+compileGeneratedJava {
+    dependsOn generateQueryDSL
+    options.warnings = false
+    classpath += sourceSets.main.runtimeClasspath
+}
+
+clean {
+    delete sourceSets.generated.java.srcDirs
+}
+
+

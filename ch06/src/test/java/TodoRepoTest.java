@@ -1,19 +1,12 @@
 import info.thecodinglive.JPAMain;
-import info.thecodinglive.repository.TodoRepository;
+
+import info.thecodinglive.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import info.thecodinglive.model.TodoEntity;
-
-import java.util.List;
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by yun_dev1 on 2016-09-22.
@@ -27,7 +20,7 @@ public class TodoRepoTest {
     //private TestEntityManager entityManager;
 
     @Autowired
-    private TodoRepository todoRepository;
+    private UserRepository userRepository;
 
     @Test
     public void findTodoTItle(){
@@ -35,12 +28,12 @@ public class TodoRepoTest {
 
         //List<TodoEntity> resultList  = todoRepository.findByTitle("운동");
 
-        TodoEntity todoEntity = new TodoEntity("운동");
+        //TodoEntity todoEntity = new TodoEntity("운동");
 
 
-        todoRepository.save(todoEntity);
+      //  todoRepository.save(todoEntity);
 
-        System.out.println(todoRepository.findOne(1L));
+        //System.out.println(todoRepository.findOne(1L));
 
     }
 }
