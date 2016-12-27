@@ -1,30 +1,74 @@
 package info.thecodinglive.repository;
 
 
-import com.mysema.query.annotations.QueryEntity;
+import com.mysema.query.SearchResults;
+import com.mysema.query.jpa.JPQLQuery;
+import com.mysema.query.types.ParamExpression;
+import com.mysema.query.types.ParamExpressionImpl;
+import com.mysema.query.types.path.NumberPath;
 import info.thecodinglive.model.QUserEntity;
 import info.thecodinglive.model.UserEntity;
+import info.thecodinglive.model.UserRole;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
-import org.springframework.stereotype.Repository;
 
-import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by yun_dev1 on 2016-12-26.
  */
-public class UserRepositoryImpl extends  UserRepositoryCustom{
-    public UserRepositoryImpl(Class<UserEntity> user) {
-        super(user);
+public class UserRepositoryImpl extends QueryDslRepositorySupport implements UserRepositoryCustom{
+
+    public UserRepositoryImpl() {
+        super(UserEntity.class);
     }
 
     @Override
-    public int minUserAge(){
-        QUserEntity quserEntity = QUserEntity.userEntity;
-       return from(quserEntity).uniqueResult(quserEntity.age.min());
-    }
-    @Override
-    public int maxUserAge(){
+    public int maxAge() {
         QUserEntity quserEntity = QUserEntity.userEntity;
         return from(quserEntity).uniqueResult(quserEntity.age.max());
+    }
+
+    @Override
+    public List findAllLike(String keyword){
+        QUserEntity qUserEntity = QUserEntity.userEntity;
+        JPQLQuery query = from(qUserEntity);
+        List resultList = query
+                .where(qUserEntity.name.like(keyword))
+                .fetch()
+                .list(qUserEntity);
+
+        return resultList;
+    }
+
+    @Override
+    public Page findAdmin(UserRole userRole) {
+        QUserEntity qUserEntity = QUserEntity.userEntity;
+        JPQLQuery query = from(qUserEntity);
+        NumberPath<Integer> adminCheck = new NumberPath<Integer>(Integer.class, qUserEntity, "adminCheck");
+        //EnumPath<UserRole>  roleCheck = new EnumPath<UserRole>(UserRole.class, qUserEntity, "roleCheck");
+        ParamExpression<UserRole> roleCheck = new ParamExpressionImpl<UserRole>(UserRole.class, "roleCheck");
+
+
+        PageRequest pr = new PageRequest(0, 10, new Sort(
+                new Sort.Order(Sort.Direction.DESC, "name")
+        ));
+
+        SearchResults<UserEntity> results = query
+                .set(roleCheck, UserRole.ADMIN)
+                .limit(pr.getPageSize())
+                .offset(pr.getOffset())
+                .listResults(qUserEntity);
+
+        return new PageImpl<>(results.getResults(), pr, results.getTotal());
+    }
+
+    @Override
+    public int minAge() {
+        QUserEntity quserEntity = QUserEntity.userEntity;
+        return from(quserEntity).uniqueResult(quserEntity.age.min());
     }
 }
