@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class JPAMain {
 
                 List<UserEntity> resultList  = new ArrayList<>();
 
-                Page<UserEntity> userEntities =  userRepository.findAdmin(UserRole.ADMIN);
+                //Page<UserEntity> userEntities =  userRepository.findAdmin(UserRole.ADMIN);
 
                 resultList = userRepository.findAllLike("%홍%");
 

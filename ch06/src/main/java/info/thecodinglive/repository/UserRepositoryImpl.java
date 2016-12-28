@@ -1,18 +1,9 @@
 package info.thecodinglive.repository;
 
 
-import com.mysema.query.SearchResults;
 import com.mysema.query.jpa.JPQLQuery;
-import com.mysema.query.types.ParamExpression;
-import com.mysema.query.types.ParamExpressionImpl;
-import com.mysema.query.types.path.NumberPath;
 import info.thecodinglive.model.QUserEntity;
 import info.thecodinglive.model.UserEntity;
-import info.thecodinglive.model.UserRole;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
 import java.util.List;
@@ -33,6 +24,12 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
     }
 
     @Override
+    public int minAge() {
+        QUserEntity quserEntity = QUserEntity.userEntity;
+        return from(quserEntity).uniqueResult(quserEntity.age.min());
+    }
+
+    @Override
     public List findAllLike(String keyword){
         QUserEntity qUserEntity = QUserEntity.userEntity;
         JPQLQuery query = from(qUserEntity);
@@ -44,6 +41,7 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
         return resultList;
     }
 
+    /*
     @Override
     public Page findAdmin(UserRole userRole) {
         QUserEntity qUserEntity = QUserEntity.userEntity;
@@ -65,10 +63,6 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
 
         return new PageImpl<>(results.getResults(), pr, results.getTotal());
     }
+    */
 
-    @Override
-    public int minAge() {
-        QUserEntity quserEntity = QUserEntity.userEntity;
-        return from(quserEntity).uniqueResult(quserEntity.age.min());
-    }
 }

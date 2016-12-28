@@ -1,8 +1,5 @@
 package info.thecodinglive.repository;
 
-import info.thecodinglive.model.UserRole;
-import org.springframework.data.domain.Page;
-
 import java.util.List;
 
 /**
@@ -16,7 +13,6 @@ public interface UserRepositoryCustom {
 
     List findAllLike(String keyword);
 
-    Page findAdmin(UserRole userRole);
-
+   // Page findAdmin(UserRole userRole);
 
 }
