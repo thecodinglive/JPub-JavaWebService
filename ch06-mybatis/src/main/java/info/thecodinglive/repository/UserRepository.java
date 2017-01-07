@@ -1,10 +1,10 @@
 package info.thecodinglive.repository;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+        import org.mybatis.spring.SqlSessionTemplate;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Repository;
 
-import java.util.List;
+        import java.util.List;
 
 /**
  * Created by yun_dev1 on 2017-01-06.
