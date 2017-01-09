@@ -30,9 +30,12 @@ public class JPAMain {
                 userRepository.save(new UserEntity("영희", 7, UserRole.USER));
                 userRepository.save(new UserEntity("척준경", 41, UserRole.ADMIN));
                 userRepository.save(new UserEntity("데니스", 80, UserRole.ADMIN));
-                userRepository.save(new UserEntity("비숍",  10, UserRole.ADMIN));
-                userRepository.save(new UserEntity("헬싱",  600, UserRole.ADMIN));
+                userRepository.save(new UserEntity("비숍", 10, UserRole.ADMIN));
+                userRepository.save(new UserEntity("헬싱", 600, UserRole.ADMIN));
 
+
+                UserEntity user = userRepository.findByName("헬싱");
+                System.out.println("나이:" + user.getAge() + ","+ "이름:"+ user.getName() + "," +"생성일:"+ user.getCreatedAt());
 
                 List<UserEntity> resultList  = new ArrayList<>();
 

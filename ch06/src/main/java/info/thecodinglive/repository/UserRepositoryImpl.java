@@ -17,6 +17,9 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
         super(UserEntity.class);
     }
 
+
+
+
     @Override
     public int maxAge() {
         QUserEntity quserEntity = QUserEntity.userEntity;

@@ -14,5 +14,4 @@ public interface UserRepositoryCustom {
     List findAllLike(String keyword);
 
    // Page findAdmin(UserRole userRole);
-
 }

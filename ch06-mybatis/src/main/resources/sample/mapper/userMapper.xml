@@ -5,7 +5,14 @@
 
 <mapper namespace="sample.mapper.userMapper">
 
-    <select id="selectUserInfoAll" resultType="hashmap">
+    <resultMap id="userResultMap" type="info.thecodinglive.model.UserVO">
+        <result property="id" column="id"/>
+        <result property="userName" column="username"/>
+        <result property="passWord" column="password"/>
+    </resultMap>
+
+
+    <select id="selectUserInfoAll" resultType="hashMap">
     <![CDATA[
 		SELECT id, username, password
 		FROM tbl_user
@@ -13,7 +20,31 @@
     </select>
 
     <insert id="addUserInfo" >
+    <![CDATA[
         insert into tbl_user(id ,username, password)
-        values(#{id},#{username}, #{password})
+        values(#{id},#{userName}, #{passWord})
+     ]]>
     </insert>
+
+    <select id="findByUserNameLike" parameterType="map" resultType="hashMap">
+    <![CDATA[
+      SELECT
+            ID,
+            USERNAME,
+            PASSWORD
+      FROM TBL_USER
+      WHERE USERNAME LIKE '%${userName}%'
+     ]]>
+    </select>
+
+    <select id="findByUserName" parameterType="map" resultMap="userResultMap">
+    <![CDATA[
+      SELECT
+            ID,
+            USERNAME,
+            PASSWORD
+      FROM TBL_USER
+      WHERE USERNAME =#{userName}
+      ]]>
+    </select>
 </mapper>
