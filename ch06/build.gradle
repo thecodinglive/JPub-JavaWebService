@@ -44,30 +44,20 @@ repositories {
 
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.slf4j:slf4j-api:1.7.7'
-
     //db
     compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.2'
-
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
-
-
-    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.1.RELEASE'
-
     //// https://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-jpa
 //    compile group: 'com.mysema.querydsl', name: 'querydsl-jpa', version: '3.6.9'
-
 
     compile  "com.mysema.querydsl:querydsl-core:${querydslVersion}"
     compile  "com.mysema.querydsl:querydsl-jpa:${querydslVersion}"
     compile  "com.mysema.querydsl:querydsl-sql:${querydslVersion}"
     querydslapt  "com.mysema.querydsl:querydsl-apt:${querydslVersion}"
 
-
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile 'junit:junit:4.12'
-
 }
 
 eclipse{
