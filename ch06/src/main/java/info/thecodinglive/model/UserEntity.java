@@ -14,7 +14,7 @@ public class UserEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String username;
 
     private Integer age;
 
@@ -36,12 +36,12 @@ public class UserEntity implements Serializable{
     public UserEntity() {
     }
 
-    public UserEntity(String name) {
-        this.name = name;
+    public UserEntity(String username) {
+        this.username = username;
     }
 
-    public UserEntity(String name, Integer age, UserRole role) {
-        this.name = name;
+    public UserEntity(String username, Integer age, UserRole role) {
+        this.username = username;
         this.age  = age;
         this.role = role;
     }
@@ -54,13 +54,6 @@ public class UserEntity implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 
     public Integer getAge() {
@@ -78,4 +71,21 @@ public class UserEntity implements Serializable{
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
 }

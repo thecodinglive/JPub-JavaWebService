@@ -37,7 +37,7 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
         QUserEntity qUserEntity = QUserEntity.userEntity;
         JPQLQuery query = from(qUserEntity);
         List resultList = query
-                .where(qUserEntity.name.like(keyword))
+                .where(qUserEntity.username.like(keyword))
                 .fetch()
                 .list(qUserEntity);
 

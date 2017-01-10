@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication(exclude = WebMvcAutoConfiguration.class)
@@ -18,9 +17,6 @@ public class JPAMain {
         public static void main(String[] args) {
                 ConfigurableApplicationContext context = SpringApplication.run(JPAMain.class, args);
                 UserRepository userRepository = context.getBean(UserRepository.class);
-
-
-
 
                 userRepository.save( new UserEntity("홍길동",  33,  UserRole.USER));
                 userRepository.save( new UserEntity("홍연희",  33,  UserRole.USER));
@@ -34,27 +30,17 @@ public class JPAMain {
                 userRepository.save(new UserEntity("헬싱", 600, UserRole.ADMIN));
 
 
-                UserEntity user = userRepository.findByName("헬싱");
-                System.out.println("나이:" + user.getAge() + ","+ "이름:"+ user.getName() + "," +"생성일:"+ user.getCreatedAt());
+                UserEntity user = userRepository.findByUsername("헬싱");
+                System.out.println("나이:" + user.getAge() + ","+ "이름:"+ user.getUsername() + "," +"생성일:"+ user.getCreatedAt());
 
-                List<UserEntity> resultList  = new ArrayList<>();
-
-                //Page<UserEntity> userEntities =  userRepository.findAdmin(UserRole.ADMIN);
-
-                resultList = userRepository.findAllLike("%홍%");
+                List<UserEntity>  resultList = userRepository.findAllLike("%홍%");
+                        System.out.printf("이름에 홍을 포함한 인원 수:%d\n", resultList.size());
 
                 for(int i=0; i<=resultList.size()-1; i++){
-                        System.out.println(resultList.get(i).getName());
-
-                       // System.out.println("관리자:" + userEntities.getContent().get(i).getName());
+                        System.out.println(resultList.get(i).getUsername());
                 }
 
                 System.out.println("maxAge:" + userRepository.maxAge());
                 System.out.println("minAge:" + userRepository.minAge());
-
-                //userEntities.forEach(userEntity -> System.out.println(userEntity));
-
-
-
         }
 }
