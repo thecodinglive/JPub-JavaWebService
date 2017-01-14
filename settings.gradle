@@ -1,2 +1,2 @@
 rootProject.name = 'JPub-JavaWebService'
-include 'ch02', 'ch03','ch04','ch05','ch06', 'ch08', 'ch08-b', 'ch10'
+include 'ch02', 'ch03','ch04','ch05','ch06','ch06-mybatis','ch07', 'ch07:CustombootStarter','ch07:UseCustomStarter','ch08','ch09','ch10' ,'ch11-b'
