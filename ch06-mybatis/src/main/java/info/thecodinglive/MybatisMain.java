@@ -24,6 +24,8 @@ public class MybatisMain implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
+        //Thread.currentThread().join();
+
         System.out.println(userRepository.getUserInfoAll().toString());
 
         System.out.println("==입력 후==");
@@ -39,5 +41,6 @@ public class MybatisMain implements CommandLineRunner{
         System.out.println("단 건 조회");
         UserVO userVO = userRepository.findByUserName("jpub");
         System.out.println(userVO.getId() +"," +  userVO.getPassword() + "," + userVO.getUserName());
+
     }
 }

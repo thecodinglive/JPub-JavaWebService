@@ -20,11 +20,11 @@ public class UserEntity implements Serializable{
 
     private Date createdAt;
 
-    @Column(name="role")
     /**
      *  EnumType.ORDINAL -- int value
      *  EnumType.STRING  -- String enum name value
     * */
+    @Column(name="role")
     @Enumerated(EnumType.ORDINAL)
     private UserRole role;
 
@@ -54,8 +54,6 @@ public class UserEntity implements Serializable{
         this.id = id;
     }
 
-
-
     public Integer getAge() {
         return age;
     }
@@ -72,6 +70,7 @@ public class UserEntity implements Serializable{
         this.createdAt = createdAt;
     }
 
+
     public String getUsername() {
         return username;
     }
@@ -79,6 +78,7 @@ public class UserEntity implements Serializable{
     public void setUsername(String username) {
         this.username = username;
     }
+
 
     public UserRole getRole() {
         return role;

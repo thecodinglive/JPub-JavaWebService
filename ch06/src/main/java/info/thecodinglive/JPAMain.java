@@ -8,12 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication(exclude = WebMvcAutoConfiguration.class)
-public class JPAMain {
-
-
+public class JPAMain{
         public static void main(String[] args) {
                 ConfigurableApplicationContext context = SpringApplication.run(JPAMain.class, args);
                 UserRepository userRepository = context.getBean(UserRepository.class);
@@ -27,6 +26,7 @@ public class JPAMain {
                 userRepository.save(new UserEntity("척준경", 41, UserRole.ADMIN));
                 userRepository.save(new UserEntity("데니스", 80, UserRole.ADMIN));
                 userRepository.save(new UserEntity("비숍", 10, UserRole.ADMIN));
+
                 userRepository.save(new UserEntity("헬싱", 600, UserRole.ADMIN));
 
 

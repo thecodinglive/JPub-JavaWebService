@@ -15,13 +15,13 @@
     <select id="selectUserInfoAll" resultType="hashMap">
     <![CDATA[
 		SELECT id, username, password
-		FROM tbl_user
+		FROM TBL_USER
 	]]>
     </select>
 
     <insert id="addUserInfo" >
     <![CDATA[
-        insert into tbl_user(id ,username, password)
+        insert into TBL_USER(id ,username, password)
         values(#{id},#{userName}, #{passWord})
      ]]>
     </insert>
