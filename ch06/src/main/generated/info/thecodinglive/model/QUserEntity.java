@@ -25,9 +25,9 @@ public class QUserEntity extends EntityPathBase<UserEntity> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final StringPath name = createString("name");
-
     public final EnumPath<UserRole> role = createEnum("role", UserRole.class);
+
+    public final StringPath username = createString("username");
 
     public QUserEntity(String variable) {
         super(UserEntity.class, forVariable(variable));

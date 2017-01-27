@@ -43,6 +43,10 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
+
+    //log
     compile 'org.slf4j:slf4j-api:1.7.7'
 
     compile("org.springframework.boot:spring-boot-starter-hateoas")
