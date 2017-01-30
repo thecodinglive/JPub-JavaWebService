@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 public class UserControllerIntegrationTest extends IntegrationTestControllerConfig{
     @Autowired
     UserService userService;
-
     @Before
     public void setup(){
         super.setup();

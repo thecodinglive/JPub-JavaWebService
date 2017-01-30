@@ -16,10 +16,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     @RequestMapping("/list")
-    public ResponseEntity<?> findUserInfoAll(){
-        return userService.findAllUserInfo();
+    public ResponseEntity<?> findUserInfoAll() throws Exception{
+        try{
+            Thread.sleep( 2000 );
+        }catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+        return new ResponseEntity(userService.findAllUserInfo(), HttpStatus.OK);
     }
 
     @RequestMapping("/regist")
@@ -30,12 +34,16 @@ public class UserController {
 
     @RequestMapping("/search")
     public ResponseEntity<?> findUserListbyNames(@RequestParam("username") String userName){
-        return userService.findByLikeUserName(userName);
+        return new ResponseEntity(userService.findByLikeUserName(userName), HttpStatus.OK);
     }
 
     @RequestMapping("/{username}")
     public ResponseEntity<?> findByUserOne(@PathVariable("username") String userName){
-        return userService.findByOneUserName(userName);
+        return new ResponseEntity(userService.findByOneUserName(userName), HttpStatus.OK);
     }
 
+    @RequestMapping("/exception")
+    public ResponseEntity<?> exceptionUser()throws Exception{
+        throw new Exception("exception occur");
+    }
 }

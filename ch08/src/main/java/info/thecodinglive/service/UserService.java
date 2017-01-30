@@ -3,8 +3,6 @@ package info.thecodinglive.service;
 import info.thecodinglive.model.UserVO;
 import info.thecodinglive.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -16,9 +14,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public ResponseEntity<Iterable<UserVO>> findAllUserInfo(){
+    public Iterable<UserVO> findAllUserInfo(){
         Iterable<UserVO> allUsers = userRepository.getUserInfoAll();
-        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+        return allUsers;
     }
 
     public void dummyInfo(){
@@ -26,19 +24,18 @@ public class UserService {
                 .toUriString();
     }
 
-    public ResponseEntity<?> createUser(UserVO userVO){
+    public void createUser(UserVO userVO){
         userRepository.adduserInfo(userVO);
-        return new ResponseEntity(null, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<?> findByLikeUserName(String userName){
-        Iterable<UserVO> resultUsers = userRepository.findByUserNameLike(userName);
-        return new ResponseEntity<Object>(resultUsers, HttpStatus.OK);
+    public Iterable<? extends UserVO> findByLikeUserName(String userName){
+        Iterable<UserVO> resultList = userRepository.findByUserNameLike(userName);
+        return resultList;
     }
 
-    public ResponseEntity<?> findByOneUserName(String userName){
+    public UserVO findByOneUserName(String userName){
         UserVO userVO = userRepository.findByUserName(userName);
-        return new ResponseEntity<Object>(userVO, HttpStatus.OK);
+        return userVO;
     }
 
 }

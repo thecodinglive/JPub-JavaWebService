@@ -44,4 +44,14 @@ public class UserVO implements Serializable{
     public void setPassword(String passWord) {
         this.passWord = passWord;
     }
+
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "id='" + id + '\'' +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                '}';
+    }
+
 }

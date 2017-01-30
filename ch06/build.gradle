@@ -55,7 +55,8 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.el/javax.el-api
     compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
     // https://mvnrepository.com/artifact/javax.validation/validation-api
-    compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.Final'
+    compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.GA'
+   // compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
 
 
 

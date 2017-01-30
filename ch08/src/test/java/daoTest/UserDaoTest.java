@@ -1,6 +1,7 @@
 package daoTest;
 
 import info.thecodinglive.config.MyBatisConfig;
+import info.thecodinglive.model.UserVO;
 import info.thecodinglive.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,5 +22,14 @@ public class UserDaoTest {
     @Test
     public void testList(){
         userRepository.getUserInfoAll();
+    }
+
+    @Test
+    public void createUser(){
+        UserVO userVO =new UserVO();
+        userVO.setId("jpub115");
+        userVO.setPassword("qwer1234");
+        userVO.setUserName("현지환");
+        userRepository.adduserInfo(userVO);
     }
 }
