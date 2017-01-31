@@ -3,6 +3,7 @@ package info.thecodinglive.aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
@@ -17,6 +18,7 @@ import org.springframework.core.annotation.Order;
 *     @Order(2)
 * */
 public class Aspect1 {
+    //ex "execution(* info.thecodinglive.controller.*.*(..)) | execution(* info.thecodinglive.controller.*.*(..))"
     @Around("execution(* info.thecodinglive.controller.*.*(..))")
     public Object doBasicProfiling(ProceedingJoinPoint joinPoint)throws Throwable{
         Long t1 = System.currentTimeMillis();
@@ -35,15 +37,25 @@ public class Aspect1 {
 
     @Before("execution(* info.thecodinglive.service.*.*(..))")
     public void logArguments(JoinPoint joinPoint){
+        final MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
         Object[] arguments = joinPoint.getArgs();
         String className = joinPoint.getSignature().getDeclaringTypeName();
         String methodName = joinPoint.getSignature().getName();
+
+        Object[] parameterNames = signature.getParameterNames();
 
         System.out.println("--------------" + className + "." + methodName + "()------");
 
         for(int i=0; i<arguments.length; i++){
             System.out.println("전달받은 파라메터:: " + arguments[i]);
         }
+
+        /*
+        * for(int i=0; i<parameterNames.length; i++){
+            log.info("paramName::" +parameterNames[i] +  ", value:: " + arguments[i]);
+        }
+        * */
     }
 
   @AfterReturning(pointcut = "execution(* info.thecodinglive.service.*.*(..))",
