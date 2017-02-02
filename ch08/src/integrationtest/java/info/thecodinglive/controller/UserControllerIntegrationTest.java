@@ -55,5 +55,4 @@ public class UserControllerIntegrationTest extends IntegrationTestControllerConf
         Assert.assertTrue(status == 200);
         Assert.assertTrue(content.trim().length() > 0);
     }
-
 }

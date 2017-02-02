@@ -1,27 +1,44 @@
 package info.thecodinglive.controller;
 
-import info.thecodinglive.model.UserEntity;
-import info.thecodinglive.repository.UserRepository;
+import info.thecodinglive.model.UserVO;
+import info.thecodinglive.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
- * Created by yun_dev1 on 2016-09-02.
+ * Created by yun_dev1 on 2017-01-24.
  */
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
+    @RequestMapping("/list")
+    public ResponseEntity<?> findUserInfoAll() throws Exception{
+        return new ResponseEntity(userService.findAllUserInfo(), HttpStatus.OK);
+    }
 
-    @RequestMapping("{userId}")
-    public UserEntity getUserInfo(@PathVariable Long userId){
-        UserEntity user = userRepository.findOne(userId);
+    @RequestMapping("/regist")
+    public ResponseEntity<?> registUser(@RequestBody UserVO userVO){
+        userService.createUser(userVO);
+        return new ResponseEntity(null, HttpStatus.OK);
+    }
 
-        return user;
+    @RequestMapping("/search")
+    public ResponseEntity<?> findUserListbyNames(@RequestParam("username") String userName){
+        return new ResponseEntity(userService.findByLikeUserName(userName), HttpStatus.OK);
+    }
+
+    @RequestMapping("/{username}")
+    public ResponseEntity<?> findByUserOne(@PathVariable("username") String userName){
+        return new ResponseEntity(userService.findByOneUserName(userName), HttpStatus.OK);
+    }
+
+    @RequestMapping("/exception")
+    public ResponseEntity<?> exceptionUser()throws Exception{
+        throw new Exception("exception occur");
     }
 }

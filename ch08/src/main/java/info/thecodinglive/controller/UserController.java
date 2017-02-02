@@ -18,11 +18,6 @@ public class UserController {
 
     @RequestMapping("/list")
     public ResponseEntity<?> findUserInfoAll() throws Exception{
-        try{
-            Thread.sleep( 2000 );
-        }catch(InterruptedException ex){
-            Thread.currentThread().interrupt();
-        }
         return new ResponseEntity(userService.findAllUserInfo(), HttpStatus.OK);
     }
 
@@ -40,10 +35,5 @@ public class UserController {
     @RequestMapping("/{username}")
     public ResponseEntity<?> findByUserOne(@PathVariable("username") String userName){
         return new ResponseEntity(userService.findByOneUserName(userName), HttpStatus.OK);
-    }
-
-    @RequestMapping("/exception")
-    public ResponseEntity<?> exceptionUser()throws Exception{
-        throw new Exception("exception occur");
     }
 }
