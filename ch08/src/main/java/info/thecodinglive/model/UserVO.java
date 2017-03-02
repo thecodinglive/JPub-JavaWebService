@@ -1,5 +1,7 @@
 package info.thecodinglive.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 
@@ -9,16 +11,20 @@ import java.io.Serializable;
 
 public class UserVO implements Serializable{
     private String id;
+
+    @NotNull(message = "error.username.notnull")
     private String userName;
-    private String passWord;
+
+    @Size(min = 2, message = "error.password.size")
+    private String pwd;
 
     public UserVO() {
     }
 
-    public UserVO(String id, String userName, String passWord) {
+    public UserVO(String id, String userName, String pwd) {
         this.id = id;
         this.userName = userName;
-        this.passWord = passWord;
+        this.pwd = pwd;
     }
 
     public String getId() {
@@ -37,12 +43,12 @@ public class UserVO implements Serializable{
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return passWord;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPassword(String passWord) {
-        this.passWord = passWord;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     @Override
@@ -50,7 +56,7 @@ public class UserVO implements Serializable{
         return "UserVO{" +
                 "id='" + id + '\'' +
                 ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                ", pwd='" + pwd + '\'' +
                 '}';
     }
 

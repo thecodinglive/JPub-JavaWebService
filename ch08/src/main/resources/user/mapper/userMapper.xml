@@ -19,9 +19,9 @@
 	]]>
     </select>
 
-    <insert id="addUserInfo" >
+    <insert id="addUserInfo"  parameterType="info.thecodinglive.model.UserVO">
     <![CDATA[
-        insert into tbl_user(id ,username, password)
+        INSERT INTO TBL_USER(ID ,USERNAME, PASSWORD)
         values(#{id},#{userName}, #{passWord})
      ]]>
     </insert>
