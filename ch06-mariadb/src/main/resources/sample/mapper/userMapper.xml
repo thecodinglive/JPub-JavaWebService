@@ -47,4 +47,17 @@
       WHERE USERNAME =#{userName}
       ]]>
     </select>
+
+    <!--foreach tag-->
+    <select id="foreachUserList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    SELECT
+     ID,
+     USERNAME,
+     PASSWORD
+    FROM TBL_USER
+    WHERE ID IN
+        <foreach collection="user_list" item="userId" index="index" open="(" close=")" separator=",">
+        #{userId}
+        </foreach>
+    </select>
 </mapper>
