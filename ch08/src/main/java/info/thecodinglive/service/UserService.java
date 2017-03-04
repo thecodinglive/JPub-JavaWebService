@@ -25,6 +25,7 @@ public class UserService {
     }
 
     public void createUser(UserVO userVO){
+        System.out.println("userVO::" + userVO.toString());
         userRepository.adduserInfo(userVO);
     }
 

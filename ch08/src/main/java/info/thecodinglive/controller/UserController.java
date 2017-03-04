@@ -5,6 +5,7 @@ import info.thecodinglive.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,8 +23,9 @@ public class UserController {
     }
 
     @RequestMapping("/regist")
-    public ResponseEntity<?> registUser(@RequestBody UserVO userVO){
-        userService.createUser(userVO);
+    public ResponseEntity<?> registUser(@Validated @RequestBody UserVO userVO){
+        System.out.println("controller vo check::" + userVO.toString() );
+        //userService.createUser(userVO);
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
