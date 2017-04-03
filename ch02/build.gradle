@@ -1,8 +1,18 @@
+buildscript{
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'jetty'
+//apply plugin: 'jetty'
 apply plugin: 'war'
+
+apply plugin: 'org.akhikhl.gretty'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -13,13 +23,15 @@ repositories {
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.7'
-
     testCompile 'junit:junit:4.12'
-
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-
 }
 
+gretty{
+    httpPort = 8080
+    contextPath = '/'
+    servletContainer = 'jetty9'
+}
 
 
    def webappDir = "$rootDir/src/main/webapp"
