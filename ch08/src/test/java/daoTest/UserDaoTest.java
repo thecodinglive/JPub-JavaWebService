@@ -28,7 +28,7 @@ public class UserDaoTest {
     public void createUser(){
         UserVO userVO =new UserVO();
         userVO.setId("jpub115");
-        userVO.setPassword("qwer1234");
+        userVO.setPwd("qwer1234");
         userVO.setUserName("현지환");
         userRepository.adduserInfo(userVO);
     }

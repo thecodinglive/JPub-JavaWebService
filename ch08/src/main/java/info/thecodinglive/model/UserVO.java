@@ -1,7 +1,6 @@
 package info.thecodinglive.model;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 
@@ -12,10 +11,8 @@ import java.io.Serializable;
 public class UserVO implements Serializable{
     private String id;
 
-    @NotNull(message = "error.username.notnull")
+    @NotNull(message = "userName필드가 null입니다.")
     private String userName;
-
-    @Size(min = 2, message = "error.password.size")
     private String pwd;
 
     public UserVO() {
