@@ -3,14 +3,17 @@ package info.thecodinglive.controller;
 import info.thecodinglive.model.Todo;
 import info.thecodinglive.model.TodoResource;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Api
 @RestController
@@ -41,7 +44,7 @@ public class BasicController {
          Todo todo2 = new Todo(2L, "기획회의");
          Todo todo3 = new Todo(3L, "운동");
 
-        Map<Integer,Todo> todoMap = new HashMap<>();
+        Map<Integer,Todo> todoMap = new HashMap();
         todoMap.put(1, todo1);
         todoMap.put(2, todo2);
         todoMap.put(3, todo3);
