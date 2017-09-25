@@ -1,5 +1,6 @@
 package info.thecodinglive.controller;
 
+import info.thecodinglive.exception.UserNotFoundException;
 import info.thecodinglive.model.UserVO;
 import info.thecodinglive.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class UserController {
 
     @RequestMapping("/{username}")
     public ResponseEntity<?> findByUserOne(@PathVariable("username") String userName){
-        return new ResponseEntity(userService.findByOneUserName(userName), HttpStatus.OK);
+        UserVO user = userService.findByOneUserName(userName);
+        if(user == null){
+            throw new UserNotFoundException("user not found");
+        }
+        return new ResponseEntity(user, HttpStatus.OK);
     }
 }

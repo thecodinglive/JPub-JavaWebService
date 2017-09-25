@@ -13,15 +13,16 @@ public class UserVO implements Serializable{
 
     @NotNull(message = "userName필드가 null입니다.")
     private String userName;
-    private String pwd;
+
+    private String email;
 
     public UserVO() {
     }
 
-    public UserVO(String id, String userName, String pwd) {
+    public UserVO(String id, String userName, String email) {
         this.id = id;
         this.userName = userName;
-        this.pwd = pwd;
+        this.email = email;
     }
 
     public String getId() {
@@ -40,21 +41,11 @@ public class UserVO implements Serializable{
         this.userName = userName;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-    @Override
-    public String toString() {
-        return "UserVO{" +
-                "id='" + id + '\'' +
-                ", userName='" + userName + '\'' +
-                ", pwd='" + pwd + '\'' +
-                '}';
-    }
-
 }
