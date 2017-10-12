@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
+<!DOCTYPE sample.mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-sample.mapper.dtd">
 
-<mapper namespace="sample.mapper.userMapper">
+<sample.mapper namespace="sample.sample.mapper.userMapper">
 
     <resultMap id="userResultMap" type="info.thecodinglive.model.UserVO">
         <result property="id" column="id"/>
@@ -60,4 +60,4 @@
         #{userId}
         </foreach>
     </select>
-</mapper>
+</sample.mapper>

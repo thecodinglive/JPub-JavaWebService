@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class FreeBoardRepository {
-    private static final String MAPPER_NAME_SPACE="sample.mapper.freeBoard.";
+    private static final String MAPPER_NAME_SPACE="sample.sample.mapper.freeBoard.";
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
