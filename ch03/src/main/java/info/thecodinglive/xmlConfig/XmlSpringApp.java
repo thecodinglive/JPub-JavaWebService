@@ -9,11 +9,11 @@ public class XmlSpringApp {
                 "classpath:applicationContext.xml"
         );
 
+        WorkService myWorkService = context.getBean("myWorkService", WorkService.class);
+        myWorkService.askWork();
+
         WorkService yourWorkService = context.getBean("yourWorkService", WorkService.class);
         yourWorkService.askWork();
-
-        WorkService workService = context.getBean("myWorkService", WorkService.class);
-        workService.askWork();
 
         context.close();
     }

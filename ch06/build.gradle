@@ -1,6 +1,7 @@
+/*
 buildscript{
     ext{
-        springBootVersion ='1.3.8.RELEASE'
+        springBootVersion ='1.4.0.RELEASE'
         querydslVersion = "3.6.9"
         generatedSourcesDir = file("${buildDir}/generated-sources")
     }
@@ -20,6 +21,20 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+*/
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '1.4.3.RELEASE'
+}
+
+ext{
+    springBootVersion='1.4.3.RELEASE'
+    //querydslVersion = "3.6.9"
+    querydslVersion = "4.1.4"
+    generatedSourcesDir = file("${buildDir}/generated-sources")
+}
 
 
 configurations {
@@ -60,10 +75,10 @@ dependencies {
 
 
 
-    compile  "com.mysema.querydsl:querydsl-core:${querydslVersion}"
-    compile  "com.mysema.querydsl:querydsl-jpa:${querydslVersion}"
-    compile  "com.mysema.querydsl:querydsl-sql:${querydslVersion}"
-    querydslapt  "com.mysema.querydsl:querydsl-apt:${querydslVersion}"
+    compile  "com.querydsl:querydsl-core:${querydslVersion}"
+    compile  "com.querydsl:querydsl-jpa:${querydslVersion}"
+    compile  "com.querydsl:querydsl-sql:${querydslVersion}"
+    querydslapt  "com.querydsl:querydsl-apt:${querydslVersion}"
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile 'junit:junit:4.12'
