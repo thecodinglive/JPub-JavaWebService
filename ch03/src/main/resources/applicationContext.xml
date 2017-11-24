@@ -10,9 +10,17 @@
     <bean id="boss" class="basic.Boss"></bean>
     <bean id="employee" class="basic.Employee"></bean>
 
-    <bean id="myWorkService" class="basic.WorkService">
+    <bean id="myWorkService" class="basic.WorkService"
+          init-method="onCreated" destroy-method="onDestroyed">
         <property name="workManager">
             <ref bean="boss"/>
+        </property>
+    </bean>
+
+    <bean id="yourWorkService" class="basic.WorkService"
+          init-method="onCreated" destroy-method="onDestroyed">
+        <property name="workManager">
+            <ref bean="employee"/>
         </property>
     </bean>
 

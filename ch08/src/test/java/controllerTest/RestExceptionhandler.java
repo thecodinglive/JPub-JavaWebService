@@ -1,6 +1,6 @@
 package controllerTest;
 
-import info.thecodinglive.common.ErrorDetail;
+import info.thecodinglive.model.ApiErrorDetail;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,24 +19,24 @@ public class RestExceptionhandler extends ResponseEntityExceptionHandler{
             HttpMessageNotReadableException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
 
-        ErrorDetail errorDetail = new ErrorDetail();
-        errorDetail.setTimeStamp(new Date().getTime());
-        errorDetail.setStatus(status.value());
-        errorDetail.setTitle("Message Not Readable");
-        errorDetail.setDetail(ex.getMessage());
+        ApiErrorDetail errorDetail = new ApiErrorDetail();
+        errorDetail.setTimeStamp(new Date());
+        errorDetail.setCode(status.value());
+        errorDetail.setMessage("Message Not Readable");
+        errorDetail.setStatus(ex.getMessage());
 
 
         return handleExceptionInternal(ex, errorDetail, headers, status, request);
     }
     @Override
-    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException manve, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-        ErrorDetail errorDetail = new ErrorDetail();
-        errorDetail.setTimeStamp(new Date().getTime());
-        errorDetail.setStatus(status.value());
-        errorDetail.setTitle("Message Not Readable");
-        errorDetail.setDetail("deddddd");
+        ApiErrorDetail errorDetail = new ApiErrorDetail();
+        errorDetail.setTimeStamp(new Date());
+        errorDetail.setCode(status.value());
+        errorDetail.setMessage("Message Not Readable");
+        errorDetail.setStatus(ex.getMessage());
 
-        return handleExceptionInternal(manve, errorDetail, headers, status, request);
+        return handleExceptionInternal(ex, errorDetail, headers, status, request);
     }
 }

@@ -1,18 +1,20 @@
 package info.thecodinglive.model;
 
-import static com.mysema.query.types.PathMetadataFactory.*;
+import static com.mysema.query.types.PathMetadataFactory.forVariable;
+import static com.querydsl.core.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.path.*;
+import com.querydsl.core.types.dsl.*;
 
-import com.mysema.query.types.PathMetadata;
+import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
-import com.mysema.query.types.Path;
+
+import com.querydsl.core.types.Path;
 
 
 /**
  * QUserEntity is a Querydsl query type for UserEntity
  */
-@Generated("com.mysema.query.codegen.EntitySerializer")
+@Generated("com.querydsl.codegen.EntitySerializer")
 public class QUserEntity extends EntityPathBase<UserEntity> {
 
     private static final long serialVersionUID = -1270685350L;
@@ -37,7 +39,7 @@ public class QUserEntity extends EntityPathBase<UserEntity> {
         super(path.getType(), path.getMetadata());
     }
 
-    public QUserEntity(PathMetadata<?> metadata) {
+    public QUserEntity(PathMetadata metadata) {
         super(UserEntity.class, metadata);
     }
 

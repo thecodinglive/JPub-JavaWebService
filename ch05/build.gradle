@@ -1,3 +1,4 @@
+/*
 buildscript{
   repositories{
     mavenCentral()
@@ -11,6 +12,21 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+*/
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '1.4.3.RELEASE'
+}
+
+ext{
+    springBootVersion='1.4.3.RELEASE'
+    querydslVersion = "3.6.9"
+    generatedSourcesDir = file("${buildDir}/generated-sources")
+}
+
+
 
 jar{
   baseName = 'jpub-springBoot'

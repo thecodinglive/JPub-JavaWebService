@@ -1,8 +1,8 @@
 package basic;
 
-/**
- * Created by yun_dev1 on 2016-03-28.
- */
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class WorkService {
     WorkManager workManager;
 
@@ -12,5 +12,15 @@ public class WorkService {
 
     public void askWork(){
         System.out.println( workManager.doIt() );
+    }
+
+    @PostConstruct
+    public void onCreated() {
+        System.out.println("초기화 되었을 때");
+    }
+
+    @PreDestroy
+    public void onDestroyed() {
+        System.out.println("종료되었을 때");
     }
 }
