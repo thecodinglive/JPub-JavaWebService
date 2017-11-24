@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="boss" class="basic.Boss"></bean>
-    <bean id="employee" class="basic.Employee"></bean>
+    <bean id="boss" class="basic.Boss" init-method="onCreated" destroy-method="onDestroyed"></bean>
+    <bean id="employee" class="basic.Employee" init-method="onCreated" destroy-method="onDestroyed"></bean>
 
     <bean id="myWorkService" class="basic.WorkService">
         <property name="workManager">
             <ref bean="boss"/>
+        </property>
+    </bean>
+
+    <bean id="yourWorkService" class="basic.WorkService">
+        <property name="workManager">
+            <ref bean="employee"/>
         </property>
     </bean>
 

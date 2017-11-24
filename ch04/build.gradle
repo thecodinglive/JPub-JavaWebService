@@ -12,26 +12,12 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-jar{
-  baseName = 'jpub-springBoot'
-  version =  '0.1.0'
-}
 
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
-sourceSets{
-    main{
-        java {
-            srcDir 'src/main/java'
-        }
-        resources{
-            srcDir 'src/resources'
-        }
-    }
-}
 
 
 repositories {

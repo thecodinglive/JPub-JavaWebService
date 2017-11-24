@@ -21,6 +21,8 @@ repositories {
     jcenter()
 }
 
+compileJava.options.encoding = 'UTF-8'
+
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.7'
     testCompile 'junit:junit:4.12'

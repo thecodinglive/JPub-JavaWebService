@@ -1,7 +1,7 @@
-
 repositories {
     jcenter()
 }
+
 ext{
     javaVersion = '1.8'
      springVersion = '4.1.6.RELEASE'
@@ -14,11 +14,8 @@ List springLib = [
         "org.springframework:spring-context:${springVersion}",
 ]
 
-
-
 dependencies {
     compile springLib
-
     compile     'org.slf4j:slf4j-api:1.7.7'
     testCompile 'junit:junit:4.12'
 }
