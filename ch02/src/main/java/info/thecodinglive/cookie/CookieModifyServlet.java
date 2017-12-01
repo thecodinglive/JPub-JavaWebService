@@ -25,7 +25,7 @@ public class CookieModifyServlet extends HttpServlet{
                 }
             }
         }
-        out.println("</body></html>");
+        out.println("<a href='/readcookie'>readcookie</a></body></html>");
     }
 
 }
