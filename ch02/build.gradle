@@ -7,9 +7,6 @@ buildscript{
     }
 }
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-//apply plugin: 'jetty'
 apply plugin: 'war'
 
 apply plugin: 'org.akhikhl.gretty'
@@ -37,19 +34,3 @@ gretty{
 
 
    def webappDir = "$rootDir/src/main/webapp"
-
-eclipse{
-   classpath {
-        downloadSources = true
-        defaultOutputDir = file("${buildDir}/classes/main")
-        }
-}
-
-idea{
-    module{
-        downloadSources = true
-        downloadJavadoc = false
-        inheritOutputDirs = false
-        outputDir = file("${buildDir}/classes/main")
-    }
-}
