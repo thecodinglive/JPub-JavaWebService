@@ -21,7 +21,7 @@ public class CreateSessionValueServlet extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("jpub", "book");
         out.println("세션이 생성되었습니다.");
-        out.println("<a href='</body></html>");
+        out.println("<a href='/readse'>세션 읽기</a></body></html>");
     }
 }
 
