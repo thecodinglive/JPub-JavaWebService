@@ -5,13 +5,22 @@ import javax.persistence.*;
 @Entity
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "STUDENT_ID")
     private Long id;
     private String userName;
     private String grade;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne
     @JoinColumn(name = "SCHOOL_ID")
     private School school;
+
+    public Student() {
+    }
+
+    public Student(String userName) {
+        this.userName = userName;
+    }
 
     public School getSchool() {
         return school;

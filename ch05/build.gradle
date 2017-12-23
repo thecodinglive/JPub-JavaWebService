@@ -1,22 +1,15 @@
 plugins {
     id 'java'
     id 'idea'
-    id 'org.springframework.boot' version '1.4.3.RELEASE'
+    //id 'org.springframework.boot' version '1.4.3.RELEASE'
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
 ext{
-    springBootVersion='1.4.3.RELEASE'
+    springBootVersion='1.5.4.RELEASE'
     querydslVersion = "3.6.9"
     generatedSourcesDir = file("${buildDir}/generated-sources")
 }
-
-
-
-jar{
-  baseName = 'jpub-springBoot'
-  version =  '0.1.0'
-}
-
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -34,6 +27,8 @@ dependencies {
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.4.0'
 
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+
     compile("org.springframework.boot:spring-boot-starter-hateoas")
 
 

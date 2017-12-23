@@ -1,9 +1,6 @@
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Created by yun_dev1 on 2016-06-13.
- */
 public class RestClient extends RestTemplate{
 
     private RestClient(){

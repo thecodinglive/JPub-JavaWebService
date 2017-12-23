@@ -50,8 +50,6 @@ dependencies {
 
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
 
-    //https://mvnrepository.com/artifact/org.aspectj/aspectjweaver/1.8.9
-
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 
     testCompile("org.springframework.boot:spring-boot-starter-test")

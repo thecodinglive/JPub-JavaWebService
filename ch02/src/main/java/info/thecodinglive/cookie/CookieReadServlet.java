@@ -25,6 +25,6 @@ public class CookieReadServlet extends HttpServlet {
                 }
             }
         }
-        out.println("</body></html>");
+        out.println("<a href='/modicookie'>쿠키수정</a></body></html>");
     }
 }

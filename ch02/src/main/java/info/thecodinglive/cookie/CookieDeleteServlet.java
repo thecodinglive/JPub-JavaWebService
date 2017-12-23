@@ -13,6 +13,8 @@ import java.io.PrintWriter;
 public class CookieDeleteServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
         out.println("<html><head><title> cookie 삭제 </title></head>");
         out.println("<body>");

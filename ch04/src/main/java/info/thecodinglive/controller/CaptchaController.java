@@ -8,7 +8,6 @@
 package info.thecodinglive.controller;
 
 import info.thecodinglive.util.CaptchaUtil;
-import jj.play.ns.nl.captcha.Captcha;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +21,7 @@ public class CaptchaController {
     @RequestMapping("/ch")
     public void genCh(HttpServletRequest req, HttpServletResponse resp,
                       HttpSession session) {
+        /*
         Captcha captcha = new Captcha
                 .Builder(250, 60)
                 .addText()
@@ -39,6 +39,7 @@ public class CaptchaController {
         //req.getSession().setAttribute("correctAnswer", captcha.getAnswer());
         session.setAttribute("correctAnswer", captcha.getAnswer());
         System.out.println("captcha 자동가입방지 문자" + captcha.getAnswer());
+        */
     }
 
     @RequestMapping("/chjoin")

@@ -1,10 +1,8 @@
 package info.thecodinglive.javaConfig;
 
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Import;
 
-@Import(BeanConfig.class)
+
 public class ConfigImportSpringApp {
     public static void main(String ar[]) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
@@ -16,6 +14,9 @@ public class ConfigImportSpringApp {
 
         WorkService myWorkService = context.getBean("myWorkService", WorkService.class);
         myWorkService.askWork();
+
+        Company company = context.getBean("company", Company.class);
+        company.getName();
 
         context.close();
     }

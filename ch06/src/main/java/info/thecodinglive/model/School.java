@@ -1,17 +1,23 @@
 package info.thecodinglive.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class School {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "SCHOOL_ID")
     private Long id;
     private String name;
     private String address;
     private String telnumber;
+
+    public School() {
+    }
+
+    public School(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
