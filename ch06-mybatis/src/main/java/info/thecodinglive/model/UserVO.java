@@ -2,11 +2,6 @@ package info.thecodinglive.model;
 
 import java.io.Serializable;
 
-
-/**
- * Created by yun_dev1 on 2016-07-28.
- */
-
 public class UserVO implements Serializable{
     private String id;
     private String userName;
