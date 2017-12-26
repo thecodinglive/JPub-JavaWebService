@@ -11,7 +11,8 @@ import java.util.Date;
  */
 @Controller
 public class IndexController {
-    @RequestMapping("/")
+
+	@RequestMapping("/")
     public ModelAndView home(){
        // return new ModelAndView("home");
         ModelAndView mv=new ModelAndView("home");

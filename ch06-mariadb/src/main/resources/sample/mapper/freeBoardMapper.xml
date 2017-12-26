@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE sample.mapper
+<!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-sample.mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<sample.mapper namespace="sample.sample.mapper.freeBoard">
+<mapper namespace="sample.mapper.freeBoard">
 
 <insert id="insertBoard" parameterType="info.thecodinglive.model.FreeBoardVO">
     <selectKey resultType="String" order="BEFORE" keyProperty="boardId">
@@ -17,4 +17,4 @@
 </insert>
 
 
-</sample.mapper>
+</mapper>
