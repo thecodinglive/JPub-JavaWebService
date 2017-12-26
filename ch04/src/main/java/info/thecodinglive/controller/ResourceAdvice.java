@@ -1,10 +1,3 @@
-/**
- * ResourceAdvice.java 2017.10.26.
- * <p>
- * Copyright 2017 NAVER Corp. All rights Reserved.
- * NAVER PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
-
 package info.thecodinglive.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +10,8 @@ public class ResourceAdvice {
     @Autowired
     private ResourceUrlProvider resourceUrlProvider;
 
-    @ModelAttribute("versionResourceResolver")
-    public ResourceUrlProvider versionResouceResolver() {
+    @ModelAttribute("verionResourceResolver")
+    public ResourceUrlProvider versionResourceResolver() {
         return this.resourceUrlProvider;
     }
 }

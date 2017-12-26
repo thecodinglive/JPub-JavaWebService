@@ -1,29 +1,22 @@
 package info.thecodinglive.model;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
+        import javax.persistence.*;
+        import java.io.Serializable;
+        import java.util.Date;
 
-
-/**
- * Created by yun_dev1 on 2016-07-28.
- */
 @Entity
 public class UserEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String username;
-
+    private String userName;
     private Integer age;
-
     private Date createdAt;
 
     /**
      *  EnumType.ORDINAL -- int value
      *  EnumType.STRING  -- String enum name value
-    * */
+     * */
     @Column(name="role")
     @Enumerated(EnumType.ORDINAL)
     private UserRole role;
@@ -36,13 +29,13 @@ public class UserEntity implements Serializable{
     public UserEntity() {
     }
 
-    public UserEntity(String username) {
-        this.username = username;
+    public UserEntity(String userName){
+        this.userName = userName;
     }
 
-    public UserEntity(String username, Integer age, UserRole role) {
-        this.username = username;
-        this.age  = age;
+    public UserEntity(String userName, Integer age, UserRole role){
+        this.userName = userName;
+        this.age = age;
         this.role = role;
     }
 
@@ -70,16 +63,13 @@ public class UserEntity implements Serializable{
         this.createdAt = createdAt;
     }
 
-
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-
     public UserRole getRole() {
         return role;
     }

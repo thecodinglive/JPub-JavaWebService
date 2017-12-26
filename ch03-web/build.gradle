@@ -13,7 +13,6 @@ apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply from : 'gradle/lib.gradle'
-apply from : 'gradle/web.gradle'
 
 
 apply plugin: 'org.akhikhl.gretty'

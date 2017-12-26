@@ -1,3 +1,0 @@
-apply plugin: 'base'
-apply plugin: 'idea'
-apply plugin: 'eclipse'

@@ -1,44 +1,11 @@
-/*
-buildscript{
-    ext{
-        springBootVersion ='1.4.0.RELEASE'
-    }
-
-  repositories{
-    jcenter()
-  }
-
-  dependencies{
-    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-  }
-}
-
-
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'war'
-apply plugin: 'spring-boot'
-*/
-
 plugins{
     id 'java'
-    id 'idea'
     id 'org.springframework.boot' version '1.4.3.RELEASE'
 }
-
 
 configurations {
     querydslapt
 }
-
-
-jar{
-  baseName = 'jpub-springBoot'
-  version =  '0.1.0'
-}
-
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -102,25 +69,7 @@ dependencies {
 
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
 
-    //https://mvnrepository.com/artifact/org.aspectj/aspectjweaver/1.8.9
-
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
-}
-
-eclipse{
-   classpath {
-        downloadSources = true
-        defaultOutputDir = file("${buildDir}/classes/main")
-        }
-}
-
-idea{
-    module{
-        downloadSources = true
-        downloadJavadoc = false
-        inheritOutputDirs = false
-        outputDir = file("${buildDir}/classes/main")
-    }
 }
