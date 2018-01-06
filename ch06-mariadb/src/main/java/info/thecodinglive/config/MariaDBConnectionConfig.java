@@ -7,12 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
-
 import javax.sql.DataSource;
 
-/**
- * Created by jins on 2017-01-21.
- */
 @Configuration
 @PropertySource("application.properties")
 public class MariaDBConnectionConfig {
@@ -36,7 +32,6 @@ public class MariaDBConnectionConfig {
         hikariConfig.setDataSourceClassName(dbClassName);
         hikariConfig.setLeakDetectionThreshold(2000);
         hikariConfig.setPoolName("jpubDBpool");
-
 
         final HikariDataSource dataSource = new HikariDataSource(hikariConfig);
         return dataSource;

@@ -10,9 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-/**
- * Created by yun_dev1 on 2017-01-06.
- */
 @Configuration
 @Import(MariaDBConnectionConfig.class)
 @ComponentScan(basePackages = {"info.thecodinglive.repository"})
@@ -33,5 +30,4 @@ public class MyBatisConfig {
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:sample/sample.mapper/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-
 }

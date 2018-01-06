@@ -2,9 +2,6 @@ package info.thecodinglive.model;
 
 import java.sql.Date;
 
-/**
- * Created by jins on 2017-02-18.
- */
 public class FreeBoardVO{
     private String boardId;
     private String userName;

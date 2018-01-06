@@ -1,19 +1,17 @@
-buildscript{
-    repositories{
-        mavenCentral()
-    }
-    dependencies{
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
-    }
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
-
-apply plugin: 'java'
-
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
 
 repositories {
     jcenter()
 }
+
+bootRepackage.enabled = false
 
 jar{
     baseName='spring-boot-helloService-starter'
@@ -22,7 +20,7 @@ jar{
 
 dependencies {
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '1.4.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '1.5.8.RELEASE'
 
     compile 'org.slf4j:slf4j-api:1.7.21'
 

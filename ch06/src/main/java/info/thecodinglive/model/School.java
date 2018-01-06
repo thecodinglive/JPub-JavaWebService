@@ -1,6 +1,8 @@
 package info.thecodinglive.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class School {
@@ -11,6 +13,16 @@ public class School {
     private String name;
     private String address;
     private String telnumber;
+
+    @OneToMany(mappedBy = "school")
+    private Set<Student> students;
+
+    public void registerStudent(Student s) {
+        if (students == null) {
+            students = new HashSet<Student>();
+        }
+        students.add(s);
+    }
 
     public School() {
     }
@@ -49,5 +61,16 @@ public class School {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "School{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", telnumber='" + telnumber + '\'' +
+                ", studentSet=" + students +
+                '}';
     }
 }

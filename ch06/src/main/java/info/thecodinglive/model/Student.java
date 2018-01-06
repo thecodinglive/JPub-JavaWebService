@@ -11,7 +11,6 @@ public class Student {
     private String userName;
     private String grade;
     @ManyToOne(fetch = FetchType.LAZY)
-    //@ManyToOne
     @JoinColumn(name = "SCHOOL_ID")
     private School school;
 
@@ -52,5 +51,15 @@ public class Student {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", grade='" + grade + '\'' +
+                ", school=" + school +
+                '}';
     }
 }

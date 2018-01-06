@@ -21,7 +21,7 @@ import java.util.Map;
 public class ForEachMain implements CommandLineRunner{
 
        public static void main(String[] args) {
-                SpringApplication.run(MariaDBMain.class, args);
+           SpringApplication.run(ForEachMain.class, args);
         }
 
     @Autowired

@@ -5,9 +5,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by yun_dev1 on 2017-01-06.
- */
 @Repository
 public class FreeBoardRepository {
     private static final String MAPPER_NAME_SPACE="sample.sample.mapper.freeBoard.";

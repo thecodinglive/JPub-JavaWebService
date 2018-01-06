@@ -1,21 +1,11 @@
-buildscript{
-  repositories{
-    mavenCentral()
-  }
-  dependencies{
-    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
-  }
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+    id 'application'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-apply plugin: 'application'
-
-jar{
-  baseName = 'jpub-springBoot'
-  version =  '0.1.0'
+ext{
+    springBootVersion='1.5.8.RELEASE'
 }
 
 
@@ -29,30 +19,13 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.8.RELEASE'
 
 
     compile 'org.slf4j:slf4j-api:1.7.7'
     testCompile 'junit:junit:4.12'
 
 
-    //compile project('ch10:CustombootStarter')
+    //compile project('../CustombootStarter')
     compile files('lib/spring-boot-helloService-starter-1.0.0-SNAPSHOT.jar')
-}
-
-
-eclipse{
-   classpath {
-        downloadSources = true
-        defaultOutputDir = file("${buildDir}/classes/main")
-        }
-}
-
-idea{
-    module{
-        downloadSources = true
-        downloadJavadoc = false
-        inheritOutputDirs = false
-        outputDir = file("${buildDir}/classes/main")
-    }
 }
