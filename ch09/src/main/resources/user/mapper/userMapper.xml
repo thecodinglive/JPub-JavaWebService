@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE sample.mapper
+<!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-sample.mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<sample.mapper namespace="sample.sample.mapper.userMapper">
+<mapper namespace="user.mapper.userMapper">
 
     <resultMap id="userResultMap" type="info.thecodinglive.model.UserVO">
         <result property="id" column="id"/>
@@ -47,4 +47,4 @@
       WHERE USERNAME =#{userName}
       ]]>
     </select>
-</sample.mapper>
+</mapper>

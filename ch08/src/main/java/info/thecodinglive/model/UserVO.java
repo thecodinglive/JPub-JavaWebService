@@ -1,12 +1,8 @@
 package info.thecodinglive.model;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-
-/**
- * Created by yun_dev1 on 2016-07-28.
- */
+import javax.validation.constraints.NotNull;
 
 public class UserVO implements Serializable{
     private String id;

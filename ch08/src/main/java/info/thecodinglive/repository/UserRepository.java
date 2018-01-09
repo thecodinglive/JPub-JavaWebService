@@ -1,20 +1,21 @@
 package info.thecodinglive.repository;
 
-import info.thecodinglive.model.UserVO;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import info.thecodinglive.model.UserVO;
 
 /**
  * Created by yun_dev1 on 2017-01-06.
  */
 @Repository
 public class UserRepository {
-    private static final String MAPPER_NAME_SPACE="sample.sample.mapper.userMapper.";
+    private static final String MAPPER_NAME_SPACE = "user.mapper.userMapper.";
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;

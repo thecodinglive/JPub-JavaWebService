@@ -1,14 +1,12 @@
 package info.thecodinglive.service;
 
-import info.thecodinglive.model.UserVO;
-import info.thecodinglive.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-/**
- * Created by yun_dev1 on 2017-01-24.
- */
+import info.thecodinglive.model.UserVO;
+import info.thecodinglive.repository.UserRepository;
+
 @Service
 public class UserService {
     @Autowired
@@ -38,5 +36,4 @@ public class UserService {
         UserVO userVO = userRepository.findByUserName(userName);
         return userVO;
     }
-
 }
