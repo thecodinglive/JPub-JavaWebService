@@ -1,11 +1,6 @@
 package info.thecodinglive.prop;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-/**
- * Created by ysj on 2018-01-04.
- */
 
 @ConfigurationProperties(prefix = "myapp")
 public class MyProperties {
