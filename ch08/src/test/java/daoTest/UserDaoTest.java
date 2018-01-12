@@ -1,23 +1,15 @@
 package daoTest;
 
-import info.thecodinglive.config.MyBatisConfig;
+import org.junit.Test;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
 import info.thecodinglive.model.UserVO;
 import info.thecodinglive.repository.UserRepository;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-/**
- * Created by yun_dev1 on 2017-01-24.
- */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = MyBatisConfig.class, loader = AnnotationConfigContextLoader.class)
-public class UserDaoTest {
-    @Autowired
+public class UserDaoTest extends MybatisTestConfig {
+    @MockBean
     private UserRepository userRepository;
+
 
     @Test
     public void testList(){
@@ -26,10 +18,10 @@ public class UserDaoTest {
 
     @Test
     public void createUser(){
-        UserVO userVO =new UserVO();
+        UserVO userVO = new UserVO();
         userVO.setId("jpub115");
-        userVO.setPwd("qwer1234");
-        userVO.setUserName("현지환");
+        userVO.setUserName("홍길동");
+        userVO.setEmail("test1@jpub.com");
         userRepository.adduserInfo(userVO);
     }
 }

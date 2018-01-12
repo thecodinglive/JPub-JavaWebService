@@ -9,13 +9,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by yun_dev1 on 2017-01-06.
  */
 @Configuration
-@EnableTransactionManagement
 @ComponentScan(basePackages = {"info.thecodinglive.repository"})
 @Import(DBConfig.class)
 public class MyBatisConfig {

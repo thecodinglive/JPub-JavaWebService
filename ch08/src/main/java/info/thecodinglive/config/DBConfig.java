@@ -1,21 +1,23 @@
 package info.thecodinglive.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
-/**
- * Created by yun_dev1 on 2017-01-23.
- */
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
+
 @Configuration
-public class DBConfig {
-    @Bean
-    public DataSource dataSource(){
+@EnableTransactionManagement
+public class DBConfig implements TransactionManagementConfigurer {
+	@Bean(destroyMethod = "shutdown")
+	public DataSource dataSource(){
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase h2 = builder
                 .setType(EmbeddedDatabaseType.H2)
@@ -25,6 +27,17 @@ public class DBConfig {
 
         return h2;
     }
+
+	@Bean
+	public PlatformTransactionManager txManager() {
+		return new DataSourceTransactionManager(dataSource());
+	}
+
+	@Override
+	public PlatformTransactionManager annotationDrivenTransactionManager() {
+		return txManager();
+	}
+
 
     @PostConstruct
     public void onCreate(){
