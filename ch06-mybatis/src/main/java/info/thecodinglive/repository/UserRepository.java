@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import info.thecodinglive.model.UserVO;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by yun_dev1 on 2017-01-06.

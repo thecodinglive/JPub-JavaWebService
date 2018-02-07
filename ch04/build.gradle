@@ -31,7 +31,7 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
-
+    compile "org.springframework.boot:spring-boot-starter-devtools"
 
     compile group: 'org.webjars', name: 'webjars-locator', version: '0.32'
 

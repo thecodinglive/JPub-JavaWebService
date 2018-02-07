@@ -2,6 +2,7 @@ package info.thecodinglive.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -16,6 +17,7 @@ import static springfox.documentation.builders.PathSelectors.*;
 
 @Configuration
 @EnableSwagger2
+@Profile({"dev"})
 public class SwaggerConfig {
     @Bean
     public UiConfiguration uiConfig() {

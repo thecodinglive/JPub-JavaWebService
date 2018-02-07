@@ -3,6 +3,7 @@ package info.thecodinglive.config;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -16,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("application.properties")
+@ConfigurationProperties("mariadb")
 public class MariaDBConnectionConfig implements TransactionManagementConfigurer{
     @Value("${spring.datasource.url}")
     private String dbUrl;

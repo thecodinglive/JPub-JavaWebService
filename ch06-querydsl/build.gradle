@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 
@@ -24,6 +25,12 @@ repositories {
 	mavenCentral()
 }
 
+idea{
+	module{
+		sourceDirs +=file('generated/')
+	}
+}
+
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -34,13 +41,7 @@ dependencies {
 	compile  "com.querydsl:querydsl-apt:${querydslVersion}"
 }
 
-sourceSets {
-	main {
-		java {
-			srcDirs 'src/main/java', 'src/main/generated'
-		}
-	}
-}
+def querydslQclassOutput = file('src/main/generated')
 
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
 	file(new File(projectDir, "/src/main/generated")).deleteDir()
@@ -56,4 +57,8 @@ task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates
 
 compileJava {
 	dependsOn generateQueryDSL
+}
+
+clean{
+	delete querydslQclassOutput
 }

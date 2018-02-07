@@ -19,8 +19,8 @@ public class DBConfig {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase h2 = builder
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("schema-h2.sql")
-                .addScript("data-h2.sql")
+                .addScript("classpath:schema-h2.sql")
+                .addScript("classpath:data-h2.sql")
                 .build();
 
         return h2;

@@ -14,7 +14,7 @@ import java.util.Map;
  */
 @Repository
 public class UserRepository {
-    private static final String MAPPER_NAME_SPACE="sample.sample.mapper.userMapper.";
+    private static final String MAPPER_NAME_SPACE="user.mapper.userMapper.";
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
