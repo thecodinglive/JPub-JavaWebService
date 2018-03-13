@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>sb</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>
+	<link  type="text/css" rel="stylesheet" href="/webjars/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css"/>
+	<link  type="text/css" rel="stylesheet" href="/webjars/metisMenu/1.1.2/metisMenu.css"/>
+	<link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+	<script type="text/javascript"  src="/webjars/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>
+	<script type="text/javascript" src="/webjars/metisMenu/1.1.2/metisMenu.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<form class="form-horizontal" role="form" method="POST" action="/signup" th:object="${userForm}">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<h2>회원가입</h2>
+				<hr/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 field-label-responsive">
+				<label for="username">이름</label>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+						<input type="text" name="username" class="form-control" id="username"
+							   placeholder="이름"/>
+					</div>
+					<div class="col-lg-4">
+						<span class="label label-danger" th:if="#{#fields.hasErrors('username')}" th:errors="*{username}">User Name Error</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--email-->
+		<div class="row">
+			<div class="col-md-3 field-label-responsive">
+				<label for="email">이메일</label>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+						<input type="text" name="email" class="form-control" id="email"
+							   placeholder="my@info.com"/>
+					</div>
+					<div class="col-lg-4">
+						<span class="label label-danger" th:if="#{#fields.hasErrors('email')}" th:errors="*{email}">email Error</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--password-->
+		<div class="row">
+			<div class="col-md-3 field-label-responsive">
+				<label for="password">패스워드</label>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+						<input type="password" name="password" class="form-control" id="password"/>
+					</div>
+					<div class="col-lg-4">
+						<span class="label label-danger" th:if="#{#fields.hasErrors('password')}" th:errors="*{password}">password Error</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--password confirm-->
+		<div class="row">
+			<div class="col-md-3 field-label-responsive">
+				<label for="passwordConfirm">패스워드 확인</label>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+						<input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm"/>
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+					</div>
+					<div class="col-lg-4">
+						<span class="label label-danger" th:if="#{#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">passwordConfirm Error</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> 회원등록</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+</body>
+</html>

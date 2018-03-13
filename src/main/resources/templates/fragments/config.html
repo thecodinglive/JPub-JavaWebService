@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+        <meta charset="UTF-8" />
+        <title>jpub book example</title>
+        <meta name="description" content=""/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- 공통으로 쓰이는 css파일을넣는다.-->
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"  />
+        <link  type="text/css" rel="stylesheet" href="/webjars/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css" />
+        <link  type="text/css" rel="stylesheet" href="/webjars/metisMenu/1.1.2/metisMenu.css" />
+        <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"  />
+        <!-- 사용자 CSS 영역이 들어감 -->
+        <th:block layout:fragment="css"></th:block>
+
+        <!-- 공통으로 쓰이는 js파일을넣는다.-->
+        <script type="text/javascript" th:src="@{/webjars/jquery/3.1.0/jquery.min.js}" ></script>
+        <script type="text/javascript" th:src="@{/webjars/metisMenu/1.1.2/metisMenu.min.js}" ></script>
+        <script type="text/javascript" th:src="@{/webjars/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js}"  ></script>
+        <!-- 사용자 스크립트 영역이 들어감 -->
+        <th:block layout:fragment="script"></th:block>
+    </head>
+</html>
