@@ -26,6 +26,10 @@ compileTestJava.options.encoding = 'UTF-8'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.1'
+}
+
 repositories {
     jcenter()
 }
