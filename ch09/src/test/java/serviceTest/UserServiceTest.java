@@ -1,13 +1,15 @@
 package serviceTest;
 
-import info.thecodinglive.config.ServiceConfig;
-import info.thecodinglive.service.UserService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+import info.thecodinglive.config.ServiceConfig;
+import info.thecodinglive.service.UserService;
 
 /**
  * Created by jins on 2017-01-30.
@@ -18,8 +20,9 @@ public class UserServiceTest {
     @Autowired
     UserService userService;
 
-    @Test
-    public void findUserList(){
-        userService.findAllUserInfo();
-    }
+	@Ignore
+	@Test
+	public void findUserList() {
+		userService.findAllUserInfo();
+	}
 }

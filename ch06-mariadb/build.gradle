@@ -1,10 +1,12 @@
 plugins{
     id 'java'
     id 'idea'
-    id 'org.springframework.boot' version '1.4.3.RELEASE'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
-
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
