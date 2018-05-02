@@ -10,7 +10,7 @@ public class ResourceAdvice {
     @Autowired
     private ResourceUrlProvider resourceUrlProvider;
 
-    @ModelAttribute("verionResourceResolver")
+    @ModelAttribute("versionResourceResolver")
     public ResourceUrlProvider versionResourceResolver() {
         return this.resourceUrlProvider;
     }

@@ -1,33 +1,13 @@
-/*
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
-    }
-}
-
-apply plugin: 'spring-boot'
-apply plugin: 'java'
-*/
 plugins{
     id 'java'
-    id 'idea'
-    id 'org.springframework.boot' version '1.4.3.RELEASE'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
 repositories {
     jcenter()
 }
 
-springBoot{
-    executable = true
-}
-
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '1.4.2.RELEASE'
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    testCompile 'junit:junit:4.12'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '1.5.8.RELEASE'
 }

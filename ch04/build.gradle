@@ -1,11 +1,10 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '1.5.4.RELEASE'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
 ext{
-    springBootVersion='1.5.4.RELEASE'
-    generatedSourcesDir = file("${buildDir}/generated-sources")
+    springBootVersion='1.5.8.RELEASE'
 }
 
 sourceCompatibility = 1.8
@@ -31,7 +30,7 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
-    compile "org.springframework.boot:spring-boot-starter-devtools"
+    compile "org.springframework.boot:spring-boot-devtools"
 
     compile group: 'org.webjars', name: 'webjars-locator', version: '0.32'
 
