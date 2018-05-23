@@ -1,10 +1,3 @@
-/**
- * PasswordEncoderUtil.java 2018.03.06.
- *
- * Copyright 2018 NAVER Corp. All rights Reserved.
- * NAVER PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
-
 package info.thecodinglive.member.support;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
