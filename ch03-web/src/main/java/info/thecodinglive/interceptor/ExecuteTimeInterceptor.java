@@ -17,6 +17,8 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter {
 
         String reqUri = request.getRequestURI();
         System.out.println("reqUrl: " + reqUri);
+
+        return true;
     }
 
     @Override

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.List;
 
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 public class AutoPackageMain {
     public static void main(String ar[]) {
         SpringApplication app =

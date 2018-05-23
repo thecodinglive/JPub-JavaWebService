@@ -1,4 +1,4 @@
-rootProject.name = 'JPub-JavaWebService'
+rootProject.name = 'jpub-javawebservice'
 include 'ch02',
         'ch03',
         'ch03-web',

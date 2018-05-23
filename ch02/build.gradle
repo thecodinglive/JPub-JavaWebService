@@ -11,6 +11,9 @@ apply plugin: 'war'
 
 apply plugin: 'org.akhikhl.gretty'
 
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -34,3 +37,10 @@ gretty{
 
 
    def webappDir = "$rootDir/src/main/webapp"
+
+eclipse{
+    classpath{
+        downloadSources = true
+        defaultOutputDir = file("${buildDir}/classes/main")
+    }
+}
