@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec=”http://www.springframework.org/schema/security
+>
+
+<div layout:fragment="content">
+
+	<div class="container">
+		<h2> home </h2>
+		<span sec:authentication="name">userName</span>
+		role:<span sec:authentication="principal.authorities"></span>
+		<a th:href="@{/logout}">sign out</a>
+	</div>
+
+</div>
+<!--  fragmentsment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+
+	</script>
+
+</th:block>

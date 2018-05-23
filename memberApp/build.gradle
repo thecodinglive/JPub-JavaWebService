@@ -1,0 +1,78 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+		querydslVersion = "4.1.4"
+	}
+	repositories {
+		jcenter()
+		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies{
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply from : 'gradle/querydsl.gradle'
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.1'
+}
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs 'src/main/java', 'src/main/generated'
+		}
+	}
+}
+
+
+dependencies {
+compile('org.springframework.boot:spring-boot-starter-web')
+
+compile "org.springframework.boot:spring-boot-starter-actuator"
+compile "org.springframework.boot:spring-boot-starter-security"
+
+compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile  "com.querydsl:querydsl-core:${querydslVersion}"
+	compile  "com.querydsl:querydsl-jpa:${querydslVersion}"
+	compile  "com.querydsl:querydsl-apt:${querydslVersion}"
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.2.0.Final'
+	compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
+	compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.GA'
+  compileOnly 'org.projectlombok:lombok:1.16.20'
+	compile "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
+ runtime group: 'com.h2database', name: 'h2', version: '1.4.196'
+//web static
+	compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+	compile group: 'org.webjars', name: 'webjars-locator', version: '0.32'
+	compile group: 'org.webjars', name: 'startbootstrap-sb-admin-2', version: '3.3.7+1'
+	compile group: 'org.webjars', name: 'metisMenu', version: '1.1.2'
+	compile group: 'org.webjars', name: 'font-awesome', version: '4.7.0'
+	compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+
+	compile 'org.webjars:jquery:3.1.0'
+	compile 'org.webjars:bootstrap:3.3.1'
+	compile 'org.webjars:materializecss:0.96.0'
+
+	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '2.1.2.RELEASE'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+  testCompile('org.springframework.security:spring-security-test')
+}
