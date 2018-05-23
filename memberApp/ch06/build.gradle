@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+}
+
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    //db
+    compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.2'
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.2.0.Final'
+    compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
+    compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.GA'
+}

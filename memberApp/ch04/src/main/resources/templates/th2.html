@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>thymeleaf</title>
+</head>
+<body>
+<div th:object="${product}">
+    <p>name: <span th:text="*{name}"></span></p>
+    <p>color: <span th:text="*{color}"></span></p>
+    <p>price: <span th:text="*{price}"></span></p>
+
+    <div th:if="${product.price} > 3000" th:text="비싸다"/>
+    <div th:if="${product.price} > 1500" th:text="적당하다"/>
+
+    <div th:unless="${product.price} >3000" th:text="비싸다"/>
+</div>
+</body>
+</html>

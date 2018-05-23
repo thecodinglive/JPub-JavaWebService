@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+    id 'application'
+}
+
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.8.RELEASE'
+    compile files('lib/spring-boot-helloService-starter-1.0.0-SNAPSHOT.jar')
+}

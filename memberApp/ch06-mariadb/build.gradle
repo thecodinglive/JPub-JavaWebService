@@ -1,0 +1,30 @@
+plugins{
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+}
+
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    //db
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '1.5.7'
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.5.1'
+
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile 'junit:junit:4.12'
+}

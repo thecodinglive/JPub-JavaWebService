@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" th:href="${versionResourceResolver.getForLookupPath('/assets/style.css')}"/>
+        <title>thymeleaf</title>
+        <link rel="stylesheet" th:href="${versionResourceResolver.getForLookupPath('/assets/css/style.css')}"/>
+    </head>
+    <body>
+       <p th:text="${message}"></p>
+
+    </body>
+</html>

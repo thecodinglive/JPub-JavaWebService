@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.mapper.userMapper">
+
+    <resultMap id="userResultMap" type="info.thecodinglive.model.UserVO">
+        <result property="id" column="id"/>
+        <result property="userName" column="username"/>
+        <result property="passWord" column="password"/>
+    </resultMap>
+
+
+    <select id="selectUserInfoAll" resultType="hashMap">
+    <![CDATA[
+		SELECT id, username, password
+		FROM TBL_USER
+	]]>
+    </select>
+
+    <insert id="addUserInfo" >
+    <![CDATA[
+        insert into TBL_USER(id ,username, password)
+        values(#{id},#{userName}, #{passWord})
+     ]]>
+    </insert>
+
+    <select id="findByUserNameLike" parameterType="map" resultType="hashMap">
+    <![CDATA[
+      SELECT
+            ID,
+            USERNAME,
+            PASSWORD
+      FROM TBL_USER
+      WHERE USERNAME LIKE '%${userName}%'
+     ]]>
+    </select>
+
+    <select id="findByUserName" parameterType="map" resultMap="userResultMap">
+    <![CDATA[
+      SELECT
+            ID,
+            USERNAME,
+            PASSWORD
+      FROM TBL_USER
+      WHERE USERNAME =#{userName}
+      ]]>
+    </select>
+</mapper>

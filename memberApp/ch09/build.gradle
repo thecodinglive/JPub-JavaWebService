@@ -1,0 +1,60 @@
+buildscript{
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'docker'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+springBoot{
+    executable = true
+}
+
+jar{
+    baseName = 'ch09-boot'
+    version = '0.0.1'
+}
+
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    //db
+    runtime  group: 'com.h2database', name: 'h2', version: '1.4.193'
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '1.5.7'
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.5.1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task buildDocker(type: Docker, dependsOn: build){
+    push = false
+    applicationName = jar.baseName
+    tagVersion = jar.version
+    dockerfile = file('src/docker/Dockerfile')
+    doFirst{
+        copy{
+            from jar
+            into stageDir
+        }
+    }
+}

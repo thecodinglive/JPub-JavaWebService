@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+}
+
+ext{
+    springBootVersion='1.5.8.RELEASE'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+sourceSets{
+    main{
+        java {
+            srcDir 'src/main/java'
+        }
+        resources{
+            srcDir 'src/resources'
+        }
+    }
+}
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.boot:spring-boot-devtools"
+
+    compile group: 'org.webjars', name: 'webjars-locator', version: '0.32'
+
+    compile 'org.webjars:jquery:3.1.0'
+    compile 'org.webjars:bootstrap:3.3.1'
+    compile 'org.webjars:materializecss:0.96.0'
+
+    compile 'org.slf4j:slf4j-api:1.7.7'
+
+    testCompile 'junit:junit:4.12'
+
+    //capcha
+    compile group: 'com.google.code.maven-play-plugin.org.playframework', name: 'jj-imaging', version: '1.1'
+    compile group: 'com.google.code.maven-play-plugin.org.playframework', name: 'jj-simplecaptcha', version: '1.1'
+}
+

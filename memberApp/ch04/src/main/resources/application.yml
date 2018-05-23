@@ -1,0 +1,6 @@
+spring:
+  devtools:
+    livereolad:
+      enabled: true
+    thymeleaf:
+      cache: false

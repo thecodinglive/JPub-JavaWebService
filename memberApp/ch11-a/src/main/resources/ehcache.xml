@@ -1,0 +1,3 @@
+<ehcache>
+    <cache name="carName" maxEntriesLocalHeap="200"></cache>
+</ehcache>
