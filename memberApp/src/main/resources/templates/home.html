@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec=”http://www.springframework.org/schema/security
+	  layout:decorator="layout/base">
+<body>
+
+<!--사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+
+</th:block>
+<!-- 사용자 js 추가 -->
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+
+	</script>
+</th:block>
+
+
+
+<div layout:fragment="content">
+ <div class="container">
+	 <div class="jumbotron">
+		 <h1>SpringBoot Tutorial</h1>
+		 <p>Jpub Java webService</p>
+	 </div>
+ </div>
+ </div>
+
+</div>
+<!--  fragmentsment -->
+</body>
+</html>
