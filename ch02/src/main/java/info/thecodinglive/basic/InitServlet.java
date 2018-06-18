@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "initServlet", urlPatterns = {"/init"},
-        initParams = {@WebInitParam(name = "siteName", value = "jpub")})
+@WebServlet(
+        name = "initServlet", urlPatterns = {"/init"},
+        initParams = {@WebInitParam(name = "siteName", value = "jpub")}
+)
 public class InitServlet extends HttpServlet{
     private String myParam = "";
 
