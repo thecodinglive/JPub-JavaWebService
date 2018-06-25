@@ -29,14 +29,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
+				//접근 허용
+				.antMatchers("/css/**", "/js/**", "/images/**", "/resources/**", "/h2-console/**", "/webjars/**", "/signup", "/home", "/").permitAll()
 				.anyRequest().authenticated()
 				.and()
+				//iframe 허용
 				.headers().
 				frameOptions().disable()
 				.and()
+				//DB 어드민 접속 허용
 				.csrf()
 				.ignoringAntMatchers("/h2-console/**")
 				.and()
+				//로그인
 				.formLogin()
 				.loginPage("/login")
 				.loginProcessingUrl("/sign-in")
@@ -46,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.passwordParameter("passwd")
 				.permitAll()
 				.and()
+				//예외처ㅣㄹ
 				.exceptionHandling().accessDeniedHandler(MemberAccessDeniedHandler())
 				.and()
 				.rememberMe()
@@ -55,6 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.tokenValiditySeconds(86400) //1day
 				.tokenRepository(rememberMeTokenService()).userDetailsService(myUserService())
 				.and()
+				//로그아웃
 				.logout()
 				.invalidateHttpSession(true)
 				.clearAuthentication(true)
@@ -63,12 +70,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 	}
 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web
-				.ignoring()
-				.antMatchers("/css/**", "/js/**", "/images/**", "/resources/**", "/h2-console/**", "/webjars/**", "/signup", "/home", "/");
-	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
