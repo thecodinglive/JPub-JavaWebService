@@ -4,6 +4,8 @@ import com.querydsl.jpa.JPQLQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
+import info.thecodinglive.querydsl.QUserEntity;
+
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -22,7 +24,10 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
     public List findAllLike(String keyword) {
         QUserEntity qUserEntity = QUserEntity.userEntity;
         JPQLQuery<UserEntity> query = from(qUserEntity);
-        List<UserEntity> resultlist = query.where(qUserEntity.username.like(keyword)).orderBy(qUserEntity.).fetch();
+        List<UserEntity> resultlist =
+		        query
+				        .where(qUserEntity.username.like(keyword))
+				        .fetch();
 
         return resultlist;
     }
