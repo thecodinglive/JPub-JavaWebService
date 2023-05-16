@@ -1,4 +1,4 @@
-package info.thecodinglive.model;
+package info.thecodinglive.uiexample.model;
 
 public class Product {
     private String color;

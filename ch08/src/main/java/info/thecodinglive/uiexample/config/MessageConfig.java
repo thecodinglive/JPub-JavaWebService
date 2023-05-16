@@ -1,4 +1,4 @@
-package info.thecodinglive.config;
+package info.thecodinglive.uiexample.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -15,7 +15,7 @@ List springLib = [
 ]
 
 dependencies {
-    compile springLib
-    compile     'org.slf4j:slf4j-api:1.7.7'
-    testCompile 'junit:junit:4.12'
+    implementation springLib
+    implementation     'org.slf4j:slf4j-api:1.7.7'
+    testImplementation 'junit:junit:4.12'
 }

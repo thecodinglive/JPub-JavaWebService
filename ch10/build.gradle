@@ -1,13 +1,24 @@
-plugins{
+plugins {
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
-    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
+group = 'info.thecodinglive'
+version = '2.0.0-SNAPSHOT'
+sourceCompatibility = '17'
+
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '1.5.8.RELEASE'
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+   // implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+
+
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    testImplementation 'junit:junit:4.12'
 }

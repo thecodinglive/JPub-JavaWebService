@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import info.thecodinglive.config.MyBatisConfig;
+import info.thecodinglive.uiexample.config.MyBatisConfig;
 import info.thecodinglive.model.UserVO;
 import info.thecodinglive.repository.UserRepository;
 

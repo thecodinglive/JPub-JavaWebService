@@ -1,6 +1,6 @@
-package info.thecodinglive.controller;
+package info.thecodinglive.uiexample.controller;
 
-import info.thecodinglive.service.InMemoryProductService;
+import info.thecodinglive.uiexample.service.InMemoryProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

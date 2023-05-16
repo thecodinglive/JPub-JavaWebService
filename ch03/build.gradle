@@ -9,17 +9,5 @@ apply from : 'gradle/lib.gradle'
 group = 'thecodinglive'
 version = '1.0.0'
 
-compileJava {
-    sourceCompatibility=1.8
-    targetCompatibility=1.8
-}
-
-compileTestJava {
-    sourceCompatibility=1.8
-    targetCompatibility=1.8
-}
-
-compileJava.options.encoding = 'UTF-8'
-compileTestJava.options.encoding = 'UTF-8'
 
 

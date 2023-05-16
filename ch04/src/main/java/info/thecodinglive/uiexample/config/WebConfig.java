@@ -1,7 +1,7 @@
-package info.thecodinglive.config;
+package info.thecodinglive.uiexample.config;
 
 
-import info.thecodinglive.controller.ExecuteTimeInterceptor;
+import info.thecodinglive.uiexample.controller.ExecuteTimeInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.resource.*;
 import org.springframework.web.util.UrlPathHelper;
 
 @Configuration
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private Environment env;
 
@@ -73,9 +73,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .resourceChain(true)
                 //.addResolver(new GzipResourceResolver())
                 //.addResolver(new VersionResourceResolver().addContentVersionStrategy("/**"))
-                .addResolver(new VersionResourceResolver().addVersionStrategy(new ContentVersionStrategy(), "/**"))
+                .addResolver(new VersionResourceResolver().addVersionStrategy(new ContentVersionStrategy(), "/**"));
                 //.addResolver(new WebJarsResourceResolver())
-                .addTransformer(new AppCacheManifestTransformer());
+              //  .addTransformer(new AppCacheManifestTransformer());
     }
 
     @Override

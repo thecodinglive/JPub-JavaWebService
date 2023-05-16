@@ -1,4 +1,4 @@
-package info.thecodinglive.config;
+package info.thecodinglive.uiexample.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

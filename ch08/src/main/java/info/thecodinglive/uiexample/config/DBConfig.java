@@ -1,4 +1,4 @@
-package info.thecodinglive.config;
+package info.thecodinglive.uiexample.config;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;

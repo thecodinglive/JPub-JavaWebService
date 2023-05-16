@@ -1,6 +1,6 @@
-package info.thecodinglive.service;
+package info.thecodinglive.uiexample.service;
 
-import info.thecodinglive.model.Product;
+import info.thecodinglive.uiexample.model.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

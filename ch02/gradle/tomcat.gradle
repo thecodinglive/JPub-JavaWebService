@@ -9,9 +9,9 @@ String tomcatVersion = '7.0.47'
 tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}"
 tomcat "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
 tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
-    exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    exclude group: 'org.eclipse.jdt.core.implementationr', module: 'ecj'
 }
-providedCompile "org.apache.tomcat:tomcat-servlet-api:${tomcatVersion}"
+providedimplementation "org.apache.tomcat:tomcat-servlet-api:${tomcatVersion}"
 
 }
 

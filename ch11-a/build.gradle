@@ -1,30 +1,26 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
-    }
+plugins {
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
 }
 
-apply plugin: 'spring-boot'
-apply plugin: 'java'
-
+group = 'info.thecodinglive'
+version = '2.0.0-SNAPSHOT'
+sourceCompatibility = '17'
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
+
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") {
+    implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
     }
-    compile ("org.springframework.boot:spring-boot-starter-undertow") {
-        exclude group: "io.undertow", module: "undertow-websockets-jsr"
-    }
-    //compile("org.springframework.boot:spring-boot-starter-cache")
 
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    testCompile 'junit:junit:4.12'
+    //implementation("org.springframework.boot:spring-boot-starter-cache")
+
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    testImplementation 'junit:junit:4.12'
 }

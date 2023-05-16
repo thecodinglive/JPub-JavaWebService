@@ -1,4 +1,4 @@
-package info.thecodinglive.controller;
+package info.thecodinglive.uiexample.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
