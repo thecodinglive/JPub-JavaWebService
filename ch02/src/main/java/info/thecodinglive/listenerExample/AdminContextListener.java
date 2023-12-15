@@ -1,12 +1,12 @@
-package listenerExample;
+package info.thecodinglive.listenerExample;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
 @WebListener
-public class AdminContextListener implements ServletContextListener{
+public class AdminContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("context 초기화");
@@ -22,6 +22,4 @@ public class AdminContextListener implements ServletContextListener{
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("context가 종료되엇습니다.");
     }
-
-
 }

@@ -1,8 +1,10 @@
 package info.thecodinglive.filter;
 
 
-import javax.servlet.*;
+import jakarta.servlet.*;
+
 import java.io.IOException;
+
 
 public class EncodingFilter implements Filter {
 

@@ -1,4 +1,4 @@
-package basic;
+package info.thecodinglive.basic;
 
 /*
 * classpath 확인용 더미 클래스

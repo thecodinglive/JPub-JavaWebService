@@ -1,4 +1,4 @@
-package loaderExample;
+package info.thecodinglive.loaderExample;
 
 import java.io.*;
 import java.lang.Object;
@@ -71,10 +71,11 @@ public class JpubClassLoader extends ClassLoader implements BasicClassLoader{
     public Class<?> load(String name) {
         Class targetClass = null;
         try{
-           // targetClass = urlCl.loadClass( name );
-          //  urlCl urlCl1 = (urlCl1)URLCL
+            targetClass = urlCl.loadClass( name );
+        } catch (Exception e) {
+            return null;
         }
-        return null;
+        return targetClass;
     }
 
     @Override

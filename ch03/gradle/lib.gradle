@@ -3,19 +3,20 @@ repositories {
 }
 
 ext{
-    javaVersion = '1.8'
-     springVersion = '4.1.6.RELEASE'
-    slf4jVersion = '1.7.5'
-    logbackVersion = '1.0.13'
+    javaVersion = '17'
+     springVersion = '6.1.1'
 }
 
 List springLib = [
         "org.springframework:spring-core:${springVersion}",
-        "org.springframework:spring-context:${springVersion}",
+        "org.springframework:spring-context:${springVersion}"
 ]
 
 dependencies {
     implementation springLib
-    implementation     'org.slf4j:slf4j-api:1.7.7'
-    testImplementation 'junit:junit:4.12'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.3'
+
 }

@@ -3,10 +3,8 @@ repositories {
     mavenCentral()
 }
 ext{
-    javaVersion = '1.8'
-     springVersion = '4.1.6.RELEASE'
-    slf4jVersion = '1.7.5'
-    logbackVersion = '1.0.13'
+    javaVersion = '17'
+    springVersion = '6.1.1'
 }
 
 List springLib = [
@@ -17,9 +15,11 @@ List springLib = [
 
 
 dependencies {
-    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     implementation springLib
 
-    implementation     'org.slf4j:slf4j-api:1.7.7'
-    testImplementation 'junit:junit:4.12'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.3'
+    testImplementation "org.springframework:spring-test:${springVersion}"
+    testImplementation 'htmlunit:htmlunit:1.14'
 }

@@ -1,4 +1,4 @@
-package loaderExample;
+package info.thecodinglive.loaderExample;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package loaderExample;
+package info.thecodinglive.loaderExample;
 
 public class JpServlet {
     public String sayHello(String name){
