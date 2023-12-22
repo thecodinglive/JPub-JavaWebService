@@ -1,9 +1,10 @@
 package info.thecodinglive.controller;
 
 import info.thecodinglive.model.Todo;
-import info.thecodinglive.model.TodoResource;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiResponse;
+
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
-@Api
+@Tag(name = "basicController")
 @RestController
 @RequestMapping(value = "/basic")
 public class BasicController {
@@ -31,7 +30,7 @@ public class BasicController {
         return new Todo(counter.incrementAndGet(), todoTitle);
     }
 
-    @ApiResponse(code = 400, message = "파라메터를 입력하지 않으셨습니다.")
+    @ApiResponse(responseCode = "400", description = "파라메터를 입력하지 않으셨습니다.")
     @RequestMapping(value = "/todor", method = RequestMethod.POST)
     public ResponseEntity<Todo> postBasicResponseEntity(@RequestParam(value = "todoTitle") String todoTitle){
         return new ResponseEntity(new Todo(counter.incrementAndGet(), todoTitle), HttpStatus.CREATED);
@@ -50,13 +49,5 @@ public class BasicController {
         todoMap.put(3, todo3);
 
         return todoMap.get(todoId);
-    }
-
-    @RequestMapping(value = "/todoh", method = RequestMethod.GET)
-    public ResponseEntity<TodoResource> geth(@RequestParam(value = "todoTitle") String todoTitle){
-        TodoResource todoResource = new TodoResource(todoTitle);
-        todoResource.add(linkTo(methodOn(BasicController.class).geth(todoTitle)).withSelfRel());
-
-        return  new ResponseEntity(todoResource, HttpStatus.OK);
     }
 }

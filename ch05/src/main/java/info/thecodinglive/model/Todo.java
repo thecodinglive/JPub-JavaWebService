@@ -1,8 +1,8 @@
 package info.thecodinglive.model;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel
+@Schema
 public class Todo {
     private long id;
     private String title;
