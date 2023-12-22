@@ -9,6 +9,7 @@ apply from : 'gradle/lib.gradle'
 
 gretty{
     contextPath = '/'
+    httpPort = 9090
 }
 
 
