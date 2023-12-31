@@ -1,21 +1,22 @@
-package info.thecodinglive.controller;
+package info.thecodinglive.controller.basic;
 
-import info.thecodinglive.model.User;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import static org.springframework.http.HttpStatus.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.OK;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import info.thecodinglive.model.User;
 
 @RestController
 public class UserController {
-    private static List<User> userList = new ArrayList<User>();
+    private static List<User> userList = new ArrayList<>();
 
     {
         userList.add(new User(1, "jpub01", "user01@test.com", "remine", new Date()));
@@ -24,13 +25,13 @@ public class UserController {
         userList.add(new User(4, "jpub04", "user04@test.com", "namu", new Date()));
     }
 
-    @RequestMapping("/user/{userNo}")
+    @GetMapping(value = "/user/{userNo}")
     public ResponseEntity<User> getuserInfo(@PathVariable int userNo) {
         User user = userList.get(userNo);
         return new ResponseEntity(user, OK);
     }
 
-    @RequestMapping("/user")
+    @GetMapping("/user")
     public ResponseEntity<List<User>> getUserList() {
         HashMap<String, Object> resultList = new HashMap();
         resultList.put("result", userList);
