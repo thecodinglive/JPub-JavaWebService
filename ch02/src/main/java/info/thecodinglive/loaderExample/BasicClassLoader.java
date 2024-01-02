@@ -1,4 +1,4 @@
-package info.thecodinglive.loaderExample;
+package info.thecodinglive.loaderexample;
 
 import java.io.Closeable;
 

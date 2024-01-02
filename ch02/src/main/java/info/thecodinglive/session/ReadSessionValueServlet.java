@@ -10,8 +10,9 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/readse")
+@WebServlet(urlPatterns = "/session/read")
 public class ReadSessionValueServlet extends HttpServlet {
+    private static final String SESSION_NAME = "jpub";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
@@ -20,7 +21,7 @@ public class ReadSessionValueServlet extends HttpServlet {
         out.println("<html><head><title>세션</title></head><body>");
 
         HttpSession session = req.getSession();
-        String sessionValue = (String) session.getAttribute("jpub");
+        String sessionValue = (String) session.getAttribute(SESSION_NAME);
         out.println("생성된 세션 값:" + sessionValue);
         out.println("</body></html>");
     }

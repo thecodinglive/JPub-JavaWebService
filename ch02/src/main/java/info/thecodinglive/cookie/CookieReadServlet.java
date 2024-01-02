@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/readcookie")
 public class CookieReadServlet extends HttpServlet {
+    private static final String COOKIE_NAME ="jpub";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -20,7 +21,7 @@ public class CookieReadServlet extends HttpServlet {
         Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("jpub")) {
+                if (cookie.getName().equals(COOKIE_NAME)) {
                     out.println("cookie::" + cookie.getValue());
                 }
             }

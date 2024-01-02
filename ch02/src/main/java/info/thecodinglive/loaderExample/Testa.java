@@ -1,4 +1,4 @@
-package info.thecodinglive.loaderExample;
+package info.thecodinglive.loaderexample;
 
 /**
  * Created by Administrator on 2015-07-16.

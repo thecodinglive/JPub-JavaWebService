@@ -1,4 +1,4 @@
-package info.thecodinglive.listenerExample;
+package info.thecodinglive.listenerexample;
 
 
 import jakarta.servlet.annotation.WebListener;

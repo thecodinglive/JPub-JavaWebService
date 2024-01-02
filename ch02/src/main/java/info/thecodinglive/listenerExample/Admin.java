@@ -1,4 +1,4 @@
-package info.thecodinglive.listenerExample;
+package info.thecodinglive.listenerexample;
 
 public class Admin {
     private String name = "나관리";
