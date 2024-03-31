@@ -4,7 +4,6 @@ plugins {
     id 'war'
 }
 
-
 sourceCompatibility = 17
 targetCompatibility = 17
 
@@ -12,19 +11,15 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.7'
     providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.3'
-
+    testImplementation 'org.mockito:mockito-core:4.8.1'
 }
 
-gretty{
-    httpPort = 8080
+gretty {
+    httpPort = 9090
     contextPath = '/'
 }
 
-   def webappDir = "$rootDir/src/main/webapp"
+def webappDir = "$rootDir/src/main/webapp"

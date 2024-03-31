@@ -1,19 +1,19 @@
-package info.thecodinglive.javaConfig;
+package info.thecodinglive.javaconfig;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class JavaConfigSpringApp {
-    public static void main(String ar[]){
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(BeanConfig.class);
-        context.refresh();
+	public static void main(String[] ar) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(BeanConfig.class);
+		context.refresh();
 
-        WorkService yourWorkService = context.getBean("yourWorkService", WorkService.class);
-        yourWorkService.askWork();
+		WorkService yourWorkService = context.getBean("yourWorkService", WorkService.class);
+		yourWorkService.askWork();
 
-        WorkService myWorkService = context.getBean("myWorkService", WorkService.class);
-        myWorkService.askWork();
+		WorkService myWorkService = context.getBean("myWorkService", WorkService.class);
+		myWorkService.askWork();
 
-        context.close();
-    }
+		context.close();
+	}
 }

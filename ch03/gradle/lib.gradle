@@ -1,21 +1,23 @@
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-ext{
+ext {
     javaVersion = '1.8'
-     springVersion = '4.1.6.RELEASE'
-    slf4jVersion = '1.7.5'
-    logbackVersion = '1.0.13'
+    springVersion = '6.1.3'
+    slf4jVersion = '2.0.12'
+    logbackVersion = '1.4.14'
 }
 
 List springLib = [
         "org.springframework:spring-core:${springVersion}",
-        "org.springframework:spring-context:${springVersion}",
+        "org.springframework:spring-context:${springVersion}"
 ]
 
 dependencies {
     implementation springLib
-    implementation     'org.slf4j:slf4j-api:1.7.7'
-    testImplementation 'junit:junit:4.12'
+    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    implementation "ch.qos.logback:logback-core:1.4.14"
 }

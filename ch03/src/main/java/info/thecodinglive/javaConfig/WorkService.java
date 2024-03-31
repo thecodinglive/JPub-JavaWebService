@@ -1,13 +1,13 @@
-package info.thecodinglive.javaConfig;
+package info.thecodinglive.javaconfig;
 
 public class WorkService {
-    WorkManager workManager;
+	private WorkManager workManager;
 
-    public void setWorkManager(WorkManager workManager) {
-        this.workManager = workManager;
-    }
+	public void setWorkManager(WorkManager workManager) {
+		this.workManager = workManager;
+	}
 
-    public void askWork() {
-        System.out.println(workManager.doIt());
-    }
+	public void askWork() {
+		System.out.println(workManager.doIt());
+	}
 }

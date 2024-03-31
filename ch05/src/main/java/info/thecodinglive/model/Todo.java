@@ -1,33 +1,33 @@
 package info.thecodinglive.model;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel
+@Schema
 public class Todo {
-    private long id;
-    private String title;
+	private long id;
+	private String title;
 
-    public Todo() {
-    }
+	public Todo() {
+	}
 
-    public Todo(long id, String title) {
-        this.id = id;
-        this.title = title;
-    }
+	public Todo(long id, String title) {
+		this.id = id;
+		this.title = title;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }

@@ -1,14 +1,13 @@
-package info.thecodinglive.javaConfig;
+package info.thecodinglive.javaconfig;
 
 public class Company {
-    private String name;
+	private String name;
 
-    Company(String name) {
-        this.name = name;
-    }
+	Company(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        System.out.println(name);
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 }

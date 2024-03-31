@@ -1,5 +1,5 @@
-package info.thecodinglive.javaConfig;
+package info.thecodinglive.javaconfig;
 
 public interface WorkManager {
-    public String doIt();
+	String doIt();
 }

@@ -1,21 +1,26 @@
-package info.thecodinglive.javaConfig;
+package info.thecodinglive.javaconfig;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 public class Boss implements WorkManager {
-    @Override
-    public String doIt() {
-        return "do boss";
-    }
+	@Override
+	public String doIt() {
+		return "do boss";
+	}
 
-    @PostConstruct
-    public void onCreated() {
-        System.out.println("boss 초기화");
-    }
+	@PostConstruct
+	public void onCreated() {
+		System.out.println("boss 초기화");
+	}
 
-    @PreDestroy
-    public void onDestroyed() {
-        System.out.println("boss 소멸");
-    }
+	@PreDestroy
+	public void onDestroyed() {
+		System.out.println("boss 소멸");
+	}
+
+	public void createdHandler() {
+		System.out.println("BeanPostProcessor에서 호출");
+	}
 }

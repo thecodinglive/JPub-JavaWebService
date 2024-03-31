@@ -7,13 +7,15 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="info.thecodinglive.controller" />
+    <context:component-scan base-package="info.thecodinglive.controller"/>
+
+
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass"
-                  value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/views/" />
-        <property name="suffix" value=".jsp" />
+                  value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <mvc:interceptors>
@@ -22,4 +24,23 @@
             <bean class="info.thecodinglive.interceptor.JpubInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <bean id="simpleUrlHandlerMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/simple-home">simpleMappingController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="simpleMappingController"
+          class="info.thecodinglive.handlermapping.simpleurlhandlermapping.SimpleMappingController"/>
+
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="order" value="1"/>
+    </bean>
+
+    <bean name="/bean-hello"
+          class="info.thecodinglive.handlermapping.BeanMappingController"/>
 </beans>

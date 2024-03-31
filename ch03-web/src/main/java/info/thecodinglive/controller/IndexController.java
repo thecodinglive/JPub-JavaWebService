@@ -13,12 +13,11 @@ import java.util.Date;
 public class IndexController {
 
 	@RequestMapping("/")
-    public ModelAndView home(){
-       // return new ModelAndView("home");
-        ModelAndView mv=new ModelAndView("home");
-        mv.addObject("title", "Jpub Spring WEB");
-        mv.addObject("today", new Date().toString());
+	public ModelAndView home() {
+		ModelAndView mv = new ModelAndView("home");
+		mv.addObject("title", "Jpub Spring WEB");
+		mv.addObject("today", new Date().toString());
 
-        return mv;
-    }
+		return mv;
+	}
 }
