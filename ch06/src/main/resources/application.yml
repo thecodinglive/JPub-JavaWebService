@@ -1,0 +1,14 @@
+spring:
+  main:
+    web-environment: false
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    database-to-upper: false
+
+  #autoconfigure:
+  #  exclude:
+  #    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

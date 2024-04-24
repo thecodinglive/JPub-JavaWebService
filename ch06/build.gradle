@@ -1,26 +1,31 @@
 plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
-    id 'org.springframework.boot' version '1.5.8.RELEASE'
 }
 
-ext{
-    springBootVersion='1.5.8.RELEASE'
-}
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 17
+targetCompatibility = 17
 
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.7'
-    //db
-    compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.2'
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
-    compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.2.0.Final'
-    compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
-    compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.GA'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+    //implementation 'com.h2database:h2:2.1.214'
+    implementation 'com.h2database:h2:2.2.224'
+
+    annotationProcessor('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
+
